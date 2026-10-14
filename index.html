@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"){t="light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raimore</title>
+  <meta name="description" content="Raimore Construction is a licensed, bonded, and insured general contractor based in Portland, Oregon, serving the North/Northeast Portland community." />
+  <link rel="icon" href="images/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="/" class="brand" aria-label="Raimore Construction home">
+        <img src="images/logo-white.png" alt="Raimore Construction" class="brand-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li class="has-dropdown">
+          <a href="/about-us">Company <span class="caret">&#9662;</span></a>
+          <ul class="dropdown">
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/leadership">Leadership</a></li>
+            <li><a href="/diversity">Diversity</a></li>
+            <li><a href="/safety">Safety</a></li>
+            <li><a href="/community">Community</a></li>
+          </ul>
+        </li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><a href="/careers">Careers</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme" title="Toggle light / dark"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <div class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide is-active" style="background-image:url('https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/home-hero-crew.webp')"></div>
+      <div class="hero-slide" style="background-image:url('images/gallery-1.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/gallery-2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/project-2.jpg')"></div>
+    </div>
+    <div class="container">
+      <h1>Build Better <span class="gold">Stronger</span> Together</h1>
+      <div class="hero-actions">
+        <a href="/project" class="btn btn-gold">Our Projects <span class="arr">&#8599;</span></a>
+        <a href="/contact" class="btn btn-red">Get in Touch <span class="arr">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .ra-root {
+      --ra-bg: #BA2334; --ra-ink: #FFFFFF; --ra-ink-soft: rgba(255,255,255,.85);
+      --ra-line: rgba(255,255,255,.25); --ra-accent: #FFFFFF;
+      --ra-font-display: "Funnel Display", "Inter", sans-serif;
+      --ra-font-body: "Inter", sans-serif;
+      font-family: var(--ra-font-body); color: var(--ra-ink); background: var(--ra-bg);
+      width: 100%; max-width: 100%; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      container-type: inline-size; container-name: raabout;
+      padding: clamp(64px, 9vw, 140px) clamp(24px, 5vw, 80px);
+    }
+    .ra-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+    .ra-heading-col { position: sticky; top: 40px; }
+    .ra-label { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ra-accent); margin: 0 0 24px 0; }
+    .ra-label::before { content: ""; width: 28px; height: 1.5px; background: var(--ra-accent); }
+    .ra-title { font-family: var(--ra-font-display); font-weight: 800; font-size: clamp(40px, 6vw, 80px); line-height: 1; letter-spacing: -.03em; color: var(--ra-ink); margin: 0; }
+    .ra-title .word-a, .ra-title .word-b { animation: ra-color-cycle 4s ease-in-out infinite; }
+    .ra-title .word-b { animation-delay: -2s; }
+    @keyframes ra-color-cycle { 0%,100% { color:#FFFFFF; } 50% { color:#FFBA00; } }
+    .ra-content { max-width: 60ch; padding-top: clamp(8px, 1vw, 16px); }
+    .ra-body p { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.65; color: var(--ra-ink-soft); margin: 0 0 24px 0; }
+    .ra-body p:last-child { margin-bottom: 0; }
+    .ra-body strong { color: var(--ra-ink); font-weight: 600; }
+    .ra-divider { height: 1px; background: var(--ra-line); margin: 36px 0; max-width: 80px; }
+    @keyframes ra-rise { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+    .ra-reveal { opacity: 0; animation: ra-rise .85s cubic-bezier(.2,.7,.2,1) forwards; }
+    .ra-reveal.d1 { animation-delay: .05s; } .ra-reveal.d2 { animation-delay: .18s; }
+    @container raabout (max-width: 900px) { .ra-inner { grid-template-columns: 1fr; gap: 32px; } .ra-heading-col { position: static; } .ra-content { max-width: 100%; padding-top: 0; } }
+    @container raabout (max-width: 640px) { .ra-root { padding: 56px 20px; } .ra-title { font-size: clamp(34px, 10cqi, 48px); } .ra-divider { margin: 28px 0; } }
+    @media (prefers-reduced-motion: reduce) { .ra-reveal { opacity: 1 !important; animation: none !important; } .ra-title .word-a, .ra-title .word-b { animation: none !important; } .ra-title .word-a { color:#FFFFFF !important; } .ra-title .word-b { color:#FFBA00 !important; } }
+  </style>
+  <section class="ra-root">
+    <div class="ra-inner">
+      <div class="ra-heading-col ra-reveal d1">
+        <p class="ra-label">About Us</p>
+        <h2 class="ra-title"><span class="word-a">About</span><br/><span class="word-b">Raimore</span></h2>
+      </div>
+      <div class="ra-content ra-reveal d2">
+        <div class="ra-body">
+          <p>Raimore Construction is a heavy civil contractor headquartered in Portland, Oregon. Since 2000, we have delivered complex infrastructure across the Pacific Northwest, roads, bridges, utilities, earthwork, and the foundational systems that keep communities connected and economies moving.</p>
+          <p>We are recognized for <strong>technical competence, disciplined execution, and a standard of quality</strong> that holds across every project we undertake.</p>
+          <div class="ra-divider"></div>
+          <p>Our philosophy prioritizes teamwork, collaboration, and open communication throughout all phases of a project, from design through completion, ensuring delivery on schedule and within budget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .bt-banner { --bt-red:#BA2334; --bt-red-deep:#9e1d2c; --bt-gold:#FFBA00; --bt-ink:#141110; --bt-soft:#6A655E;
+      background: #fff; overflow: hidden; }
+    .bt-top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.08fr; gap: clamp(28px,4vw,56px); align-items: center;
+      padding: clamp(48px,6vw,84px) clamp(24px,5vw,80px) clamp(36px,4vw,56px); }
+    .bt-eyebrow { display: flex; align-items: center; gap: 12px; font-size: clamp(12px,1vw,14px); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bt-red); margin: 0 0 clamp(16px,2vw,22px); }
+    .bt-eyebrow .bt-chevs { color: var(--bt-red); font-size: 1.2em; letter-spacing: -.12em; }
+    .bt-title { font-family: var(--display,"Funnel Display",sans-serif); font-weight: 800; text-transform: uppercase; font-size: clamp(42px,6.6vw,86px); line-height: 0.92; letter-spacing: -0.02em; margin: 0 0 clamp(18px,2.4vw,28px); }
+    .bt-title span { display: block; }
+    .bt-title .red { color: var(--bt-red); }
+    .bt-title .gold { color: var(--bt-gold); }
+    .bt-sub { font-size: clamp(15px,1.3vw,17px); line-height: 1.55; color: var(--bt-soft); margin: 0; max-width: 34ch; }
+
+    .bt-photo { position: relative; min-height: clamp(300px,32vw,440px); height: 100%; clip-path: polygon(7% 0, 100% 0, 100% 100%, 0% 100%); overflow: hidden; }
+    .bt-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .bt-photo::before { content: ""; position: absolute; top: 0; left: 4%; right: 0; height: 14px; background: var(--bt-red); z-index: 2; }
+    .bt-photo::after { content: ""; position: absolute; top: 18px; left: 4%; width: 120px; height: 5px; background: var(--bt-gold); z-index: 2; }
+
+    .bt-band { position: relative; background: var(--bt-red); padding: clamp(30px,4vw,44px) clamp(24px,5vw,80px) clamp(22px,3vw,30px); }
+    .bt-band::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: clamp(60px,7vw,120px); background: var(--bt-gold);
+      clip-path: polygon(40% 0, 100% 0, 100% 100%, 40% 100%, 0 50%); opacity: .95; }
+    .bt-cards { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px,2vw,28px); }
+    .bt-card { background: #fff; border-radius: 12px; padding: clamp(18px,2vw,24px) clamp(20px,2.2vw,28px); display: flex; align-items: center; gap: clamp(14px,1.6vw,20px); box-shadow: 0 18px 34px -22px rgba(0,0,0,.4); position: relative; overflow: hidden; }
+    .bt-ic { flex-shrink: 0; width: clamp(52px,5vw,64px); height: clamp(52px,5vw,64px); border-radius: 50%; background: var(--bt-red); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .bt-ic svg { width: 52%; height: 52%; }
+    .bt-num { font-family: var(--display,"Funnel Display",sans-serif); font-weight: 800; font-size: clamp(30px,3.4vw,44px); line-height: 1; color: var(--bt-ink); }
+    .bt-lbl { font-size: clamp(11px,1vw,13px); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bt-ink); margin-top: 8px; padding-bottom: 8px; position: relative; }
+    .bt-lbl::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--bt-gold); border-radius: 2px; }
+
+    .bt-tagline { position: relative; z-index: 1; text-align: center; margin: clamp(22px,3vw,32px) 0 0; font-size: clamp(12px,1.1vw,14px); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+    .bt-tagline span { color: var(--bt-gold); }
+
+    @media (max-width: 900px) {
+      .bt-top { grid-template-columns: 1fr; gap: 28px; }
+      .bt-photo { order: -1; min-height: 280px; clip-path: none; }
+      .bt-photo::before, .bt-photo::after { left: 0; }
+    }
+    @media (max-width: 680px) {
+      .bt-cards { grid-template-columns: 1fr; }
+      .bt-band::after { display: none; }
+    }
+  </style>
+
+  <section class="bt-banner">
+    <div class="bt-top">
+      <div class="bt-content">
+        <p class="bt-eyebrow"><span class="bt-chevs">&#187;</span> Building Tomorrow, Today</p>
+        <h2 class="bt-title">
+          <span class="red">Delivering</span>
+          <span class="gold">Quality.</span>
+          <span class="red">Building Trust.</span>
+        </h2>
+        <p class="bt-sub">We provide reliable construction solutions that build stronger communities worldwide.</p>
+      </div>
+      <div class="bt-photo">
+        <img src="images/feature-crew.jpg" alt="Raimore crew placing concrete on site" />
+      </div>
+    </div>
+
+    <div class="bt-band">
+      <div class="bt-cards">
+        <div class="bt-card">
+          <div class="bt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
+          <div><div class="bt-num">400+</div><div class="bt-lbl">Projects Completed</div></div>
+        </div>
+        <div class="bt-card">
+          <div class="bt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="bt-num">50+</div><div class="bt-lbl">Employed Staff</div></div>
+        </div>
+        <div class="bt-card">
+          <div class="bt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div><div class="bt-num">4</div><div class="bt-lbl">Countries Domiciled</div></div>
+        </div>
+      </div>
+      <p class="bt-tagline">Built on <span>Integrity</span>. Driven by <span>Excellence</span>.</p>
+    </div>
+  </section>
+
+  <style>
+    .tt-root {
+      --tt-bg: #FFFFFF; --tt-ink: #0F1216; --tt-accent: #BA2334;
+      --tt-font-display: "Funnel Display", "Inter", sans-serif;
+      --tt-font-body: "Inter", sans-serif;
+      font-family: var(--tt-font-body); color: var(--tt-ink); background: var(--tt-bg);
+      width: 100%; max-width: 100%; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      container-type: inline-size; container-name: ttitle;
+      padding: clamp(40px, 5vw, 64px) clamp(24px, 5vw, 80px) 24px; text-align: center;
+    }
+    .tt-inner { max-width: 900px; margin: 0 auto; }
+    .tt-label { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tt-accent); margin: 0 0 20px 0; opacity: 0; animation: tt-fade .6s cubic-bezier(.2,.7,.2,1) forwards; }
+    .tt-label::before, .tt-label::after { content: ""; width: 24px; height: 1.5px; background: var(--tt-accent); transform: scaleX(0); transform-origin: center; animation: tt-line .8s cubic-bezier(.2,.7,.2,1) .2s forwards; }
+    @keyframes tt-line { to { transform: scaleX(1); } }
+    @keyframes tt-fade { to { opacity: 1; } }
+    .tt-title { font-family: var(--tt-font-display); font-weight: 700; font-size: clamp(18px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -.02em; color: var(--tt-ink); margin: 0; }
+    .tt-count { display: inline-block; color: var(--tt-accent); font-weight: 800; position: relative; animation: tt-pop .9s cubic-bezier(.2,.9,.3,1.05) .9s both; }
+    .tt-count::after { content: ""; position: absolute; left: 4%; right: 4%; bottom: -.06em; height: 4px; background: var(--tt-accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; animation: tt-draw 1s cubic-bezier(.2,.7,.2,1) 2s forwards; }
+    @keyframes tt-draw { to { transform: scaleX(1); } }
+    @keyframes tt-pop { 0% { transform: scale(.9); opacity: 0; } 60% { transform: scale(1.02); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+    .tt-word { display: inline-block; opacity: 0; transform: translateY(24px); animation: tt-rise .85s cubic-bezier(.2,.7,.2,1) forwards; }
+    .tt-word:nth-child(1) { animation-delay: .30s; } .tt-word:nth-child(2) { animation-delay: .40s; }
+    .tt-word:nth-child(3) { animation-delay: .50s; } .tt-word:nth-child(4) { animation-delay: .60s; }
+    .tt-word:nth-child(5) { animation-delay: .70s; } .tt-word:nth-child(6) { animation-delay: .80s; }
+    .tt-word:nth-child(7) { animation-delay: .90s; }
+    @keyframes tt-rise { to { opacity: 1; transform: translateY(0); } }
+    @container ttitle (max-width: 640px) { .tt-root { padding: 40px 20px 16px; } .tt-title { font-size: clamp(15px, 4.4cqi, 22px); } }
+    @media (prefers-reduced-motion: reduce) { .tt-word, .tt-count, .tt-label, .tt-label::before, .tt-label::after, .tt-count::after { animation: none !important; opacity: 1 !important; transform: none !important; } }
+  </style>
+  <section class="tt-root">
+    <div class="tt-inner">
+      <p class="tt-label">Trusted Partners</p>
+      <h2 class="tt-title">
+        <span class="tt-word">Trusted</span>
+        <span class="tt-word">by</span>
+        <span class="tt-word"><span class="tt-count">Owners,</span></span>
+        <span class="tt-word">Contractors,</span>
+        <span class="tt-word">and</span>
+        <span class="tt-word">Project</span>
+        <span class="tt-word">Teams</span>
+      </h2>
+    </div>
+  </section>
+  <section class="partners-logos">
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <img src="images/partner-port-of-portland.svg" alt="Port of Portland" />
+        <img src="images/partner-trimet.webp" alt="TriMet" />
+        <img src="images/partner-gresham.png" alt="City of Gresham, Oregon" />
+        <img src="images/partner-metro.png" alt="Metro" />
+        <img src="images/partner-odot.png" alt="Oregon Department of Transportation" />
+        <img src="images/partner-parks.png" alt="Portland Parks &amp; Recreation" />
+        <img src="images/partner-port-of-portland.svg" alt="" aria-hidden="true" />
+        <img src="images/partner-trimet.webp" alt="" aria-hidden="true" />
+        <img src="images/partner-gresham.png" alt="" aria-hidden="true" />
+        <img src="images/partner-metro.png" alt="" aria-hidden="true" />
+        <img src="images/partner-odot.png" alt="" aria-hidden="true" />
+        <img src="images/partner-parks.png" alt="" aria-hidden="true" />
+        <img src="images/partner-port-of-portland.svg" alt="" aria-hidden="true" />
+        <img src="images/partner-trimet.webp" alt="" aria-hidden="true" />
+        <img src="images/partner-gresham.png" alt="" aria-hidden="true" />
+        <img src="images/partner-metro.png" alt="" aria-hidden="true" />
+        <img src="images/partner-odot.png" alt="" aria-hidden="true" />
+        <img src="images/partner-parks.png" alt="" aria-hidden="true" />
+        <img src="images/partner-port-of-portland.svg" alt="" aria-hidden="true" />
+        <img src="images/partner-trimet.webp" alt="" aria-hidden="true" />
+        <img src="images/partner-gresham.png" alt="" aria-hidden="true" />
+        <img src="images/partner-metro.png" alt="" aria-hidden="true" />
+        <img src="images/partner-odot.png" alt="" aria-hidden="true" />
+        <img src="images/partner-parks.png" alt="" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .rw-root {
+      --rw-bg: #FBFAF8; --rw-bg-alt: #FFFFFF; --rw-ink: #14110D; --rw-ink-soft: #5A5750;
+      --rw-line: #E8E3DA; --rw-card: #FFFFFF; --rw-accent: #BA2334; --rw-gold: #B5904E;
+      --rw-font-display: "Funnel Display", "Inter", sans-serif; --rw-font-body: "Inter", sans-serif;
+      font-family: var(--rw-font-body); color: var(--rw-ink); background-color: var(--rw-bg);
+      background-image:
+        radial-gradient(120% 65% at 50% -12%, rgba(186,35,52,.05), transparent 60%),
+        linear-gradient(rgba(20,17,13,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,17,13,.028) 1px, transparent 1px);
+      background-size: 100% 100%, 46px 46px, 46px 46px;
+      width: 100%; max-width: 100%; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      container-type: inline-size; container-name: rwhy; padding: clamp(72px, 9vw, 140px) clamp(24px, 5vw, 80px);
+    }
+    .rw-inner { max-width: 1280px; margin: 0 auto; }
+    .rw-header { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 80px); align-items: end; margin-bottom: clamp(48px, 6vw, 80px); }
+    .rw-label { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--rw-accent); margin: 0 0 20px 0; }
+    .rw-label::before { content: ""; width: 28px; height: 1.5px; background: var(--rw-accent); }
+    .rw-title { font-family: var(--rw-font-display); font-weight: 800; font-size: clamp(36px, 5vw, 68px); line-height: 1.02; letter-spacing: -.025em; color: var(--rw-ink); margin: 0; }
+    .rw-title .accent { background-image: linear-gradient(90deg, #FFBA00 50%, var(--rw-accent) 50%); background-size: 200% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent; transition: background-position .65s cubic-bezier(.7,0,.3,1); }
+    .rw-title:hover .accent { background-position: 0% 0; }
+    .rw-sub { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.6; color: var(--rw-ink-soft); margin: 0; max-width: 52ch; padding-bottom: 8px; }
+    .rw-sub strong { color: var(--rw-ink); font-weight: 600; }
+    .rw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rw-line); border: 1px solid var(--rw-line); }
+    .rw-card { background: var(--rw-card); padding: clamp(30px, 2.6vw, 40px) clamp(26px, 2.4vw, 34px); display: flex; flex-direction: column; gap: 16px; position: relative; border: none; border-radius: 0; box-shadow: none; transition: background .3s ease; }
+    .rw-card:hover { background: #FBF6F0; }
+    .rw-card::before { content: ""; position: absolute; top: -1px; left: -1px; width: 20px; height: 2px; background: var(--rw-accent); }
+    .rw-card:hover::before { background: var(--rw-accent); }
+    .rw-num { font-family: var(--rw-font-display); font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--rw-gold); margin: 0; }
+    .rw-icon { width: 52px; height: 52px; border-radius: 13px; background: var(--rw-accent); display: flex; align-items: center; justify-content: center; color: #fff; margin-bottom: 4px; box-shadow: 0 8px 20px -8px rgba(186,35,52,.5); transition: transform .4s cubic-bezier(.25,1.6,.4,1), box-shadow .3s ease; }
+    .rw-card:hover .rw-icon { background: var(--rw-accent); transform: scale(1.06) rotate(-3deg); box-shadow: 0 12px 26px -8px rgba(186,35,52,.6); }
+    .rw-icon svg { width: 30px; height: 30px; overflow: visible; }
+    .rw-icon-legacy .laurel-l, .rw-icon-legacy .laurel-r { transform-origin: 12px 22px; animation: rw-sway 4.5s ease-in-out infinite; }
+    .rw-icon-legacy .laurel-r { animation-delay: -2.25s; }
+    .rw-icon-legacy .laurel-star { transform-origin: center; animation: rw-pulse 3s ease-in-out infinite; }
+    @keyframes rw-sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+    @keyframes rw-pulse { 0%,100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.15); opacity: 1; } }
+    .rw-icon-ownership .brick-l, .rw-icon-ownership .brick-r { transform-origin: center; animation: rw-lock 4s ease-in-out infinite; }
+    .rw-icon-ownership .brick-r { animation-delay: -2s; }
+    .rw-icon-ownership .brick-center { transform-origin: center; animation: rw-pulse 3s ease-in-out infinite; }
+    @keyframes rw-lock { 0%,100% { transform: translateX(0); } 50% { transform: translateX(.8px); } }
+    .rw-icon-precision .reticle { transform-origin: center; animation: rw-spin-slow 12s linear infinite; }
+    .rw-icon-precision .center-dot { transform-origin: center; animation: rw-pulse 2s ease-in-out infinite; }
+    @keyframes rw-spin-slow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    .rw-icon-adaptability .flow-1, .rw-icon-adaptability .flow-2, .rw-icon-adaptability .flow-3 { stroke-dasharray: 18; animation: rw-flow 3s linear infinite; }
+    .rw-icon-adaptability .flow-2 { animation-delay: -1s; } .rw-icon-adaptability .flow-3 { animation-delay: -2s; }
+    @keyframes rw-flow { from { stroke-dashoffset: 18; } to { stroke-dashoffset: 0; } }
+    .rw-icon-execution .exec-circle { transform-origin: center; animation: rw-pulse 3s ease-in-out infinite; }
+    .rw-icon-execution .exec-check { stroke-dasharray: 18; stroke-dashoffset: 18; animation: rw-check-loop 3s ease-in-out infinite; }
+    @keyframes rw-check-loop { 0%,30% { stroke-dashoffset: 18; } 55%,80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 18; } }
+    .rw-icon-wellbeing .heart { transform-origin: center; animation: rw-heartbeat 1.6s ease-in-out infinite; }
+    @keyframes rw-heartbeat { 0%,100% { transform: scale(1); } 25% { transform: scale(1.12); } 50% { transform: scale(1); } 75% { transform: scale(1.06); } }
+    .rw-icon-wellbeing .pulse-line { stroke-dasharray: 30; stroke-dashoffset: 30; animation: rw-pulse-line 2.4s ease-in-out infinite; }
+    @keyframes rw-pulse-line { 0%,20% { stroke-dashoffset: 30; } 50%,70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -30; } }
+    .rw-card h3 { font-family: var(--rw-font-display); font-weight: 700; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.2; letter-spacing: -.015em; color: var(--rw-ink); margin: 0; }
+    .rw-card p { font-size: 14.5px; line-height: 1.6; color: var(--rw-ink-soft); margin: 0; max-width: 40ch; }
+    .rw-body { position: relative; overflow: hidden; max-height: 4.8em; transition: max-height .55s cubic-bezier(.2,.7,.2,1); }
+    .rw-body::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.4em; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--rw-card) 90%); pointer-events: none; transition: opacity .35s ease; }
+    .rw-body.is-open { max-height: 60em; }
+    .rw-body.is-open::after { opacity: 0; }
+    .rw-toggle { background: none; border: none; padding: 0; margin: 0; font-family: var(--rw-font-body); font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--rw-accent); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; transition: gap .25s ease, opacity .2s ease; }
+    .rw-toggle:hover { gap: 12px; }
+    .rw-toggle .rw-tog-icon { display: inline-block; transition: transform .35s cubic-bezier(.2,.7,.2,1); font-size: 13px; line-height: 1; }
+    .rw-toggle[aria-expanded="true"] .rw-tog-icon { transform: rotate(180deg); }
+    @keyframes rw-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .rw-reveal { opacity: 0; animation: rw-rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+    .rw-reveal.d1 { animation-delay: .05s; } .rw-reveal.d2 { animation-delay: .18s; }
+    .rw-inview { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .rw-inview.is-visible { opacity: 1; transform: translateY(0); }
+    .rw-inview:nth-child(1) { transition-delay: .05s; } .rw-inview:nth-child(2) { transition-delay: .12s; }
+    .rw-inview:nth-child(3) { transition-delay: .19s; } .rw-inview:nth-child(4) { transition-delay: .26s; }
+    .rw-inview:nth-child(5) { transition-delay: .33s; } .rw-inview:nth-child(6) { transition-delay: .40s; }
+    @container rwhy (max-width: 900px) { .rw-header { grid-template-columns: 1fr; gap: 20px; align-items: start; } .rw-sub { padding-bottom: 0; } .rw-grid { grid-template-columns: repeat(2, 1fr); } }
+    @container rwhy (max-width: 640px) { .rw-root { padding: 64px 20px; } .rw-title { font-size: clamp(30px, 8cqi, 40px); } .rw-grid { grid-template-columns: 1fr; } .rw-card { padding: 28px 24px; } }
+    @media (prefers-reduced-motion: reduce) { .rw-reveal, .rw-inview { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; } .rw-card::before { transform: scaleX(1) !important; } .rw-body { transition: none !important; } .rw-icon svg * { animation: none !important; } .rw-icon-execution .exec-check, .rw-icon-wellbeing .pulse-line { stroke-dashoffset: 0 !important; } }
+    @media (hover: none) { .rw-card:hover { background: #FBF6F0; } .rw-card::before { background: var(--rw-line); } }
+  </style>
+  <section class="rw-root">
+    <div class="rw-inner">
+      <header class="rw-header">
+        <div>
+          <p class="rw-label rw-reveal d1">Why Raimore</p>
+          <h2 class="rw-title rw-reveal d2">Why owners<br/><span class="accent">choose us.</span></h2>
+        </div>
+        <p class="rw-sub rw-reveal d2">Raimore brings 25+ years of heavy civil experience, self-perform capabilities, and deep community roots to every project. Here's what that means for your job, and why <strong>public agencies, private owners, and prime contractors</strong> keep coming back.</p>
+      </header>
+      <div class="rw-grid">
+
+        <div class="rw-card rw-inview">
+          <p class="rw-num">01</p>
+          <div class="rw-icon rw-icon-legacy" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <g class="laurel-l"><path d="M 7 18 C 5 14 5 10 7 6"/><ellipse cx="6.2" cy="14.5" rx="1.6" ry="0.9" transform="rotate(-30 6.2 14.5)" fill="currentColor"/><ellipse cx="5.5" cy="11" rx="1.6" ry="0.9" transform="rotate(-15 5.5 11)" fill="currentColor"/><ellipse cx="6" cy="7.5" rx="1.6" ry="0.9" transform="rotate(0 6 7.5)" fill="currentColor"/></g>
+              <g class="laurel-r"><path d="M 17 18 C 19 14 19 10 17 6"/><ellipse cx="17.8" cy="14.5" rx="1.6" ry="0.9" transform="rotate(30 17.8 14.5)" fill="currentColor"/><ellipse cx="18.5" cy="11" rx="1.6" ry="0.9" transform="rotate(15 18.5 11)" fill="currentColor"/><ellipse cx="18" cy="7.5" rx="1.6" ry="0.9" transform="rotate(0 18 7.5)" fill="currentColor"/></g>
+              <polygon class="laurel-star" points="12,9 13.2,11.4 15.8,11.6 13.8,13.2 14.4,15.8 12,14.3 9.6,15.8 10.2,13.2 8.2,11.6 10.8,11.4" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Legacy</h3>
+          <div class="rw-body"><p>For the past 25 years, we have walked alongside the owners, agencies, partners, and communities whom our work touches. Not as a vendor, but as a partner whose principle is that doing the right thing is inevitable. Profit is encouraged, but it is not paramount. Our measure of success is stewardship. Integrity toward the work, the people, and every community our work serves. Stewardship and excellence is what we bring to every project.</p></div>
+          <button class="rw-toggle" type="button" aria-expanded="false"><span class="rw-tog-label">Read more</span><span class="rw-tog-icon" aria-hidden="true">&#8595;</span></button>
+        </div>
+
+        <div class="rw-card rw-inview">
+          <p class="rw-num">02</p>
+          <div class="rw-icon rw-icon-ownership" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect class="brick-l" x="2" y="9" width="9" height="6" rx="1" fill="currentColor"/>
+              <rect class="brick-r" x="13" y="9" width="9" height="6" rx="1" fill="currentColor"/>
+              <circle class="brick-center" cx="12" cy="12" r="2.6" fill="#BA2334" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Ownership</h3>
+          <div class="rw-body"><p>We build with trusted partners who share our commitment to quality and craft. That commitment runs through every discipline on the job. Concrete, earthwork, underground utilities, steel, and railroad track work approached with the same attention to detail, accountability, and craftsmanship.</p></div>
+          <button class="rw-toggle" type="button" aria-expanded="false"><span class="rw-tog-label">Read more</span><span class="rw-tog-icon" aria-hidden="true">&#8595;</span></button>
+        </div>
+
+        <div class="rw-card rw-inview">
+          <p class="rw-num">03</p>
+          <div class="rw-icon rw-icon-precision" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <g class="reticle"><circle cx="12" cy="12" r="9" opacity="0.4"/><circle cx="12" cy="12" r="6"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></g>
+              <circle class="center-dot" cx="12" cy="12" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Precision</h3>
+          <div class="rw-body"><p>What we build carries people. That gravity is uncompromising. Our engineers are held to a rigorous standard because infrastructure affects lives. To safeguard that, our quality control program handles the unforeseen, relentlessly addresses anything that threatens progress, and keeps every detail accounted for throughout. The result is work delivered safely, on time, within budget, and exceeding the expected quality.</p></div>
+          <button class="rw-toggle" type="button" aria-expanded="false"><span class="rw-tog-label">Read more</span><span class="rw-tog-icon" aria-hidden="true">&#8595;</span></button>
+        </div>
+
+        <div class="rw-card rw-inview">
+          <p class="rw-num">04</p>
+          <div class="rw-icon rw-icon-adaptability" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path class="flow-1" d="M 3 7 C 7 7, 9 11, 13 11 S 19 15, 21 15"/>
+              <path class="flow-2" d="M 3 12 C 7 12, 9 8, 13 8 S 19 12, 21 12"/>
+              <path class="flow-3" d="M 3 17 C 7 17, 9 13, 13 13 S 19 17, 21 17"/>
+            </svg>
+          </div>
+          <h3>Adaptability</h3>
+          <div class="rw-body"><p>When the city cannot stop, neither can the work. We do not build in controlled conditions with clean shutdowns and empty corridors. We build in the middle of everything. Where life is still moving, where people still depend on what is there, and where there is no room for error. That is not a challenge we overcome. It is the environment we are built from.</p></div>
+          <button class="rw-toggle" type="button" aria-expanded="false"><span class="rw-tog-label">Read more</span><span class="rw-tog-icon" aria-hidden="true">&#8595;</span></button>
+        </div>
+
+        <div class="rw-card rw-inview">
+          <p class="rw-num">05</p>
+          <div class="rw-icon rw-icon-execution" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle class="exec-circle" cx="12" cy="12" r="9" fill="currentColor" opacity="0.85"/>
+              <polyline class="exec-check" points="8,12 11,15 16,9" stroke="#BA2334" stroke-width="2.4"/>
+            </svg>
+          </div>
+          <h3>Execution</h3>
+          <div class="rw-body"><p>When a Raimore project is complete, what remains is not just infrastructure. It is something the community can feel, touch, and remember. Work delivered on schedule, on time, and within budget, to a standard that outlasts the moment it was built. Twenty five years of showing up the right way produces a reputation that cannot be manufactured. Not one we claim. One that precedes us.</p></div>
+          <button class="rw-toggle" type="button" aria-expanded="false"><span class="rw-tog-label">Read more</span><span class="rw-tog-icon" aria-hidden="true">&#8595;</span></button>
+        </div>
+
+        <div class="rw-card rw-inview">
+          <p class="rw-num">06</p>
+          <div class="rw-icon rw-icon-wellbeing" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline class="pulse-line" points="2,12 7,12 9,8 11,16 13,10 15,12 22,12" stroke-width="1.5" opacity="0.6"/>
+              <path class="heart" d="M 12 20 L 4.5 12.5 C 2.5 10.5, 3.5 7, 6.5 7 C 8.5 7, 10.5 8.5, 12 10.5 C 13.5 8.5, 15.5 7, 17.5 7 C 20.5 7, 21.5 10.5, 19.5 12.5 Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Wellbeing</h3>
+          <div class="rw-body"><p>Infrastructure is built by people. At Raimore, we build people first. Getting every person home well to their family is a founding principle. We create an environment where every person is supported, seen, and set up to do their best work safely. Beyond the hard hat and the job site, we invest in the whole person. No detail is too small. No person is overlooked.</p></div>
+          <button class="rw-toggle" type="button" aria-expanded="false"><span class="rw-tog-label">Read more</span><span class="rw-tog-icon" aria-hidden="true">&#8595;</span></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <script>
+  (function() {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.rw-inview').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.rw-inview').forEach(el => el.classList.add('is-visible'));
+    }
+    document.querySelectorAll('.rw-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.rw-card');
+        const body = card && card.querySelector('.rw-body');
+        const label = btn.querySelector('.rw-tog-label');
+        if (!body || !label) return;
+        const isOpen = body.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        label.textContent = isOpen ? 'Read less' : 'Read more';
+      });
+    });
+  })();
+  </script>
+
+  <style>
+    .raimore-services {
+      --r-bg: #ffffff; --r-ink: #0E1116; --r-ink-soft: #4A5160; --r-muted: #8A92A3;
+      --r-line: #E7EAF0; --r-card: #FFFFFF; --r-accent: #BA2334; --r-chip-bg: #F4F6FA;
+      --r-shadow: 0 1px 2px rgba(14,17,22,.04), 0 12px 40px -12px rgba(14,17,22,.12);
+      --r-font-display: "Funnel Display", "Inter", sans-serif; --r-font-body: "Inter", sans-serif;
+      --r-radius: 14px; --r-radius-lg: 20px;
+      font-family: var(--r-font-body); color: var(--r-ink); background: var(--r-bg);
+      padding: clamp(56px, 8vw, 112px) clamp(20px, 5vw, 64px); -webkit-font-smoothing: antialiased;
+      width: 100%; max-width: 100%; overflow-x: hidden; container-type: inline-size; container-name: raimore;
+    }
+    .raimore-services img { max-width: 100%; }
+    .raimore-services .rs-wrap { max-width: 1280px; margin: 0 auto; }
+    .rs-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--r-accent); margin-bottom: 20px; }
+    .rs-eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--r-accent); }
+    .rs-heading { font-family: var(--r-font-display); font-weight: 800; font-size: clamp(38px, 5.5vw, 68px); line-height: 1.02; letter-spacing: -.025em; color: var(--r-ink); margin: 0 0 24px 0; max-width: 18ch; }
+    .rs-heading em { font-style: normal; font-weight: 800; color: var(--r-accent); }
+    .rs-intro { max-width: 62ch; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; color: var(--r-ink-soft); margin: 0 0 56px 0; }
+    .rs-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+    .rs-card { grid-column: span 6; position: relative; background: var(--r-card); border: 1px solid var(--r-line); border-radius: var(--r-radius-lg); overflow: hidden; display: flex; flex-direction: column; min-height: 420px; cursor: pointer; transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s cubic-bezier(.2,.7,.2,1), border-color .3s ease; }
+    .rs-card.is-feature { grid-column: span 12; flex-direction: row; min-height: 380px; }
+    .rs-media { position: relative; flex: 0 0 auto; height: 220px; overflow: hidden; background: #0E1116; }
+    .rs-card.is-feature .rs-media { height: auto; width: 46%; min-height: 380px; }
+    .rs-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+    .rs-card:hover .rs-media img { transform: scale(1.045); }
+    .rs-number { position: absolute; top: 16px; left: 16px; z-index: 2; font-family: var(--r-font-body); font-size: 11px; font-weight: 600; letter-spacing: .2em; color: #fff; background: rgba(14,17,22,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 6px 10px; border-radius: 999px; }
+    .rs-body { padding: 28px 28px 26px 28px; display: flex; flex-direction: column; flex: 1; }
+    .rs-card.is-feature .rs-body { padding: clamp(28px, 3vw, 48px); justify-content: center; }
+    .rs-title { font-family: var(--r-font-display); font-weight: 700; font-size: clamp(22px, 2vw, 30px); line-height: 1.15; letter-spacing: -.02em; color: var(--r-ink); margin: 0 0 12px 0; }
+    .rs-card.is-feature .rs-title { font-size: clamp(28px, 3vw, 40px); }
+    .rs-desc { font-size: 14.5px; line-height: 1.6; color: var(--r-ink-soft); margin: 0 0 20px 0; }
+    .rs-card.is-feature .rs-desc { font-size: 16px; max-width: 60ch; }
+    .rs-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px 0; }
+    .rs-tag { font-size: 11.5px; font-weight: 500; letter-spacing: .02em; color: var(--r-ink-soft); background: var(--r-chip-bg); border: 1px solid var(--r-line); padding: 5px 10px; border-radius: 999px; }
+    .rs-link { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-family: var(--r-font-body); font-size: 13.5px; font-weight: 700; color: var(--r-ink); text-decoration: none; letter-spacing: .01em; position: relative; width: fit-content; }
+    .rs-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 100%; height: 1.5px; background: var(--r-ink); transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+    .rs-link:hover::after { transform: scaleX(1); }
+    .rs-link .arrow { display: inline-block; transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+    .rs-link:hover .arrow { transform: translateX(4px); }
+    .rs-card:hover { border-color: #D6DBE5; transform: translateY(-3px); box-shadow: var(--r-shadow); }
+    .rs-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--r-accent); transform: scaleX(0); transform-origin: left; transition: transform .6s cubic-bezier(.2,.7,.2,1); z-index: 3; }
+    .rs-card:hover::before { transform: scaleX(1); }
+    @container raimore (max-width: 900px) {
+      .rs-heading { font-size: clamp(32px, 6cqi, 48px); max-width: 20ch; } .rs-intro { margin-bottom: 40px; }
+      .rs-card { grid-column: span 6; min-height: 360px; } .rs-media { height: 200px; }
+      .rs-card.is-feature { grid-column: span 12; flex-direction: column; min-height: 0; }
+      .rs-card.is-feature .rs-media { width: 100%; height: 260px; min-height: 0; }
+      .rs-card.is-feature .rs-body { padding: 32px; } .rs-card.is-feature .rs-title { font-size: clamp(26px, 4cqi, 34px); } .rs-card.is-feature .rs-desc { font-size: 15px; }
+    }
+    @container raimore (max-width: 640px) {
+      .raimore-services { padding: 56px 20px; }
+      .rs-grid { gap: 16px; } .rs-card, .rs-card.is-feature { grid-column: span 12; min-height: 0; }
+      .rs-media, .rs-card.is-feature .rs-media { height: 200px; } .rs-body, .rs-card.is-feature .rs-body { padding: 22px; }
+      .rs-title { font-size: 22px; } .rs-card.is-feature .rs-title { font-size: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .rs-animate { animation: none !important; opacity: 1 !important; } .rs-card, .rs-media img, .rs-link .arrow, .rs-link::after, .rs-card::before { transition: none !important; } }
+    @media (hover: none) { .rs-card:hover { transform: none; box-shadow: none; border-color: var(--r-line); } .rs-card:hover .rs-media img { transform: none; } .rs-card:hover::before { transform: scaleX(0); } }
+    @keyframes rs-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .rs-animate { opacity: 0; animation: rs-rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+    .rs-animate.d1 { animation-delay: .05s; } .rs-animate.d2 { animation-delay: .15s; } .rs-animate.d3 { animation-delay: .25s; }
+    .rs-animate.d4 { animation-delay: .35s; } .rs-animate.d5 { animation-delay: .45s; } .rs-animate.d6 { animation-delay: .55s; }
+    .rs-lock { overflow: hidden !important; }
+    .rs-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: flex-start; justify-content: center; padding: clamp(16px, 3vw, 48px); opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s; overflow-y: auto; -webkit-overflow-scrolling: touch; font-family: "Inter", sans-serif; }
+    .rs-modal.is-open { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+    .rs-modal-backdrop { position: fixed; inset: 0; background: rgba(14,17,22,.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: -1; }
+    .rs-modal-dialog { position: relative; width: 100%; max-width: 920px; margin: auto; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 80px -20px rgba(0,0,0,.5); transform: translateY(30px) scale(.97); transition: transform .45s cubic-bezier(.2,.9,.3,1); }
+    .rs-modal.is-open .rs-modal-dialog { transform: translateY(0) scale(1); }
+    .rs-modal-close { position: absolute; top: 20px; right: 20px; z-index: 3; width: 40px; height: 40px; border: none; border-radius: 50%; background: rgba(255,255,255,.9); backdrop-filter: blur(8px); color: #0E1116; font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform .25s ease, background .25s ease; }
+    .rs-modal-close:hover { transform: scale(1.08) rotate(90deg); background: #fff; }
+    .rs-modal-hero { position: relative; height: clamp(220px, 32vw, 360px); background: #0E1116; overflow: hidden; }
+    .rs-modal-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .rs-modal-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,17,22,0) 40%, rgba(14,17,22,.9) 100%); }
+    .rs-modal-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: clamp(20px, 3vw, 40px) clamp(24px, 4vw, 48px); color: #fff; z-index: 1; }
+    .rs-modal-crumb { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: 14px; }
+    .rs-modal-crumb::before { content: ""; width: 24px; height: 1.5px; background: #BA2334; }
+    .rs-modal-title { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 3.5vw, 40px); line-height: 1.1; letter-spacing: -.025em; margin: 0; max-width: 22ch; }
+    .rs-modal-title em { font-style: normal; font-weight: 800; color: #BA2334; }
+    .rs-modal-body { padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px); }
+    .rs-modal-lede { font-size: clamp(15.5px, 1.2vw, 17px); line-height: 1.6; color: #4A5160; margin: 0 0 32px 0; max-width: 62ch; }
+    .rs-modal-section-label { font-size: 10.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #8A92A3; margin: 0 0 18px 0; }
+    .rs-caps-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; margin: 0 0 32px 0; padding: 0; list-style: none; border-top: 1px solid #E7EAF0; }
+    .rs-caps-list li { display: flex; align-items: baseline; gap: 12px; font-size: 14.5px; line-height: 1.4; color: #0E1116; padding: 12px 16px 12px 0; border-bottom: 1px solid #E7EAF0; }
+    .rs-caps-list li::before { content: ""; flex: 0 0 6px; width: 6px; height: 6px; background: #BA2334; border-radius: 50%; transform: translateY(-2px); }
+    .rs-modal-copy { font-size: 15px; line-height: 1.65; color: #4A5160; margin: 0 0 36px 0; max-width: 68ch; }
+    .rs-modal-copy p { margin: 0 0 14px 0; } .rs-modal-copy p:last-child { margin-bottom: 0; }
+    .rs-modal-copy strong { color: #0E1116; font-weight: 600; }
+    .rs-modal-actions { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 24px; border-top: 1px solid #E7EAF0; }
+    .rs-modal-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; padding: 12px 22px; border-radius: 999px; text-decoration: none; cursor: pointer; transition: all .3s cubic-bezier(.2,.7,.2,1); border: 1px solid transparent; font-family: inherit; }
+    .rs-modal-btn-primary { background: #0E1116; color: #fff; }
+    .rs-modal-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(14,17,22,.4); }
+    .rs-modal-btn-ghost { background: transparent; color: #0E1116; border-color: #E7EAF0; }
+    .rs-modal-btn-ghost:hover { background: #F4F6FA; border-color: #D6DBE5; }
+    .rs-modal-btn .arrow { transition: transform .3s ease; } .rs-modal-btn:hover .arrow { transform: translateX(3px); }
+    @media (max-width: 640px) { .rs-modal { padding: 0; align-items: stretch; } .rs-modal-dialog { max-width: 100%; border-radius: 0; min-height: 100vh; } .rs-modal-hero { height: 240px; } .rs-modal-actions { flex-direction: column; } .rs-modal-btn { justify-content: center; width: 100%; } .rs-caps-list { grid-template-columns: 1fr; } }
+  </style>
+  <section class="raimore-services">
+    <div class="rs-wrap">
+      <div class="rs-eyebrow rs-animate d1">What We Do</div>
+      <h2 class="rs-heading rs-animate d2">Building the foundation <em>of thriving communities.</em></h2>
+      <p class="rs-intro rs-animate d3">Raimore Construction is a heavy civil contractor delivering complex infrastructure across the Pacific Northwest. Our expertise spans self-perform construction, engineering, and project management, grounded in craftsmanship, integrity, and partnership with the communities we serve.</p>
+      <div class="rs-grid">
+
+        <article class="rs-card is-feature rs-animate d4" data-service="projects">
+          <div class="rs-media">
+            <span class="rs-number">01 / Projects</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-projects.webp" alt="Raimore completed infrastructure project" />
+          </div>
+          <div class="rs-body">
+            <h3 class="rs-title">Projects</h3>
+            <p class="rs-desc">Specializing in Heavy Civil, Transportation, Parks, and Commercial Development, Raimore builds the projects that form the foundation of thriving communities, with strong self-perform capabilities in concrete, earthwork, underground utilities, and railroad track work.</p>
+            <div class="rs-tags"><span class="rs-tag">Heavy Civil</span><span class="rs-tag">Transportation</span><span class="rs-tag">Parks</span><span class="rs-tag">Commercial Development</span></div>
+            <a href="/project" class="rs-link" data-stop>View projects <span class="arrow">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="rs-card rs-animate d5" data-service="construction">
+          <div class="rs-media"><span class="rs-number">02 / Construction</span><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-construction.webp" alt="Active construction site" /></div>
+          <div class="rs-body">
+            <h3 class="rs-title">Construction</h3>
+            <p class="rs-desc">A community-rooted, self-perform contractor. Our team oversees every critical aspect of a project, ensuring all standards, people, and details are carefully integrated into the finished product.</p>
+            <span class="rs-link">Learn more <span class="arrow">&#8594;</span></span>
+          </div>
+        </article>
+
+        <article class="rs-card rs-animate d5" data-service="development">
+          <div class="rs-media"><span class="rs-number">03 / Project Development</span><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-development.webp" alt="Team reviewing a BIM model" /></div>
+          <div class="rs-body">
+            <h3 class="rs-title">Project Development</h3>
+            <p class="rs-desc">Comprehensive engineering analysis, feasibility studies, value engineering, and proven risk-mitigation strategies that support project teams across the full project life cycle.</p>
+            <span class="rs-link">Learn more <span class="arrow">&#8594;</span></span>
+          </div>
+        </article>
+
+        <article class="rs-card rs-animate d6" data-service="pm-cm">
+          <div class="rs-media"><span class="rs-number">04 / PM &amp; CM</span><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-pm-cm.webp" alt="Project manager reviewing schedule with owner" /></div>
+          <div class="rs-body">
+            <h3 class="rs-title">PM &amp; CM</h3>
+            <p class="rs-desc">Project and Construction Management for owners, budgeting, estimating, scheduling, permitting, contract administration, and inspection. Plus program development and mentoring for emerging and disadvantaged businesses.</p>
+            <span class="rs-link">Learn more <span class="arrow">&#8594;</span></span>
+          </div>
+        </article>
+
+        <article class="rs-card rs-animate d6" data-service="engineering">
+          <div class="rs-media"><span class="rs-number">05 / Engineering</span><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-engineering.webp" alt="Engineers reviewing plans on site" /></div>
+          <div class="rs-body">
+            <h3 class="rs-title">Engineering</h3>
+            <p class="rs-desc">Engineers fully integrated with our construction team, a continuous feedback cycle that reduces lifecycle costs, minimizes delays, and increases the resilience and reliability of every project we deliver.</p>
+            <span class="rs-link">Learn more <span class="arrow">&#8594;</span></span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="rs-modal" id="rsModal" role="dialog" aria-modal="true" aria-labelledby="rsModalTitle" aria-hidden="true">
+    <div class="rs-modal-backdrop" data-close></div>
+    <div class="rs-modal-dialog" role="document">
+      <button class="rs-modal-close" id="rsModalClose" aria-label="Close">&times;</button>
+      <div class="rs-modal-hero">
+        <img id="rsModalImg" src="" alt="" />
+        <div class="rs-modal-hero-content">
+          <div class="rs-modal-crumb" id="rsModalCrumb"></div>
+          <h2 class="rs-modal-title" id="rsModalTitle"></h2>
+        </div>
+      </div>
+      <div class="rs-modal-body">
+        <p class="rs-modal-lede" id="rsModalLede"></p>
+        <p class="rs-modal-section-label">Core Capabilities</p>
+        <ul class="rs-caps-list" id="rsModalCaps"></ul>
+        <p class="rs-modal-section-label">Overview</p>
+        <div class="rs-modal-copy" id="rsModalCopy"></div>
+        <div class="rs-modal-actions" id="rsModalActions"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function() {
+    const SERVICES = {
+      projects: { crumb: "01 / Projects", title: "Projects that form the foundation of <em>thriving communities.</em>", lede: "Specializing in Heavy Civil, Transportation, Parks, and Commercial Development, Raimore delivers complex infrastructure across the Pacific Northwest.", hero: "https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-projects.webp",
+        capabilities: ["Heavy Civil Construction","Transportation & Transit","Parks & Public Spaces","Commercial Development","Concrete Self-Perform","Underground Utilities","Earthwork & Grading","Railroad Track Work"],
+        copy: "<p>Raimore Construction is a heavy civil contractor headquartered in Portland, Oregon, delivering complex infrastructure across the Pacific Northwest. With strong self-perform capabilities in concrete, earthwork, underground utilities, and railroad track work, our team consistently delivers excellent results across schedule, cost, quality, and safety.</p><p>Raimore values Kingdom principles and promotes whole-project team integration, keeping everyone focused on aligned, project-first goals. The guiding principle, <strong>Build Better and Stronger Together</strong>, reflects our commitment to craftsmanship, integrity, partnership, and the conviction that when people are given the chance to grow, the neighborhoods and regions they build become stronger in turn.</p>",
+        primary: { label: "See our work", href: "project.html" } },
+      construction: { crumb: "02 / Construction", title: "Self-perform construction, <em>rooted in community.</em>", lede: "Raimore is a community-rooted, self-perform construction contractor. Construction is at the core of our business, every other service we offer supports and strengthens the work we build.", hero: "https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-construction.webp",
+        capabilities: ["Concrete Placement & Finishing","Structural & Miscellaneous Steel","Earthwork & Site Grading","Underground Utilities","Asphalt Paving","Brick & Masonry Restoration","Demolition","Railroad Track Work"],
+        copy: "<p>Our team takes pride in our ability to oversee every critical aspect of a project, ensuring that all standards, all people, and all details are included and carefully integrated into the finished product. We don't sub out the hard parts. We self-perform them.</p><p>That direct ownership of the work is what allows us to move fast when conditions change, hold the line on quality, and keep projects on schedule and on budget. It's also why owners consistently come back to us for their most technically demanding jobs.</p><p>From a single concrete pour to multi-phase corridor reconstructions, the same standard applies: <strong>do the work right, and the quality becomes its own testimony.</strong></p>",
+        primary: { label: "See our work", href: "project.html" } },
+      development: { crumb: "03 / Project Development", title: "Engineering analysis that <em>reduces risk early.</em>", lede: "Comprehensive project development services, engineering analysis, feasibility studies, and constructability reviews, that support project teams across the full life cycle.", hero: "https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-development.webp",
+        capabilities: ["Feasibility Studies","Value Engineering","Constructability Analysis","Risk Mitigation Planning","Budget & Cost Modeling","Phasing & Sequencing","Utility Conflict Resolution","BIM Coordination"],
+        copy: "<p>Through value engineering, constructability analysis, and proven risk mitigation strategies, Raimore addresses challenges proactively and helps teams meet project objectives with greater certainty. The earlier we're involved, the more value we can add, and the less owners have to absorb in rework, change orders, and schedule slippage downstream.</p><p>Our development work is grounded in real field experience. Because our engineers sit alongside our construction team, feasibility studies reflect how the project will actually be built, not just how it looks on paper.</p>",
+        primary: { label: "See our work", href: "project.html" } },
+      "pm-cm": { crumb: "04 / PM & CM", title: "Project &amp; Construction Management, <em>end to end.</em>", lede: "From budgeting and estimating through permitting, design development, contract administration, and inspection, Raimore delivers Project and Construction Management services for owners at every phase.", hero: "https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-pm-cm.webp",
+        capabilities: ["Budgeting & Estimating","Master Scheduling (CPM)","Permitting & Agency Coordination","Design Development Support","Contract Administration","Inspection Services","Program Management","DBE Mentoring & Training"],
+        copy: "<p>Raimore offers Project Management (PM) and Construction Management (CM) services to project owners, including budgeting, estimating, scheduling, permitting, design development, all contract administration requirements review and management, and inspection services.</p><p>Additionally, Raimore provides <strong>program development, mentoring, and training to emerging and disadvantaged businesses</strong> to support their long-term growth and success. We invest in the next generation of contractors the same way we were invested in, with real opportunities, real mentorship, and real accountability.</p>",
+        primary: { label: "See our work", href: "project.html" } },
+      engineering: { crumb: "05 / Engineering", title: "Engineers who <em>work alongside the crews.</em>", lede: "Raimore's engineers are fully integrated with our construction team, creating a continuous feedback cycle between engineering staff and field crews that leads to better, more resilient projects.", hero: "https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/service-engineering.webp",
+        capabilities: ["Structural Engineering Review","Constructability Input","Load Calculations","Shoring & Temporary Works","Phasing & Staging Design","Utility Coordination","Lifecycle Cost Analysis","Field Engineering Support"],
+        copy: "<p>Our collaborative model allows owners to choose from a range of practical, well-informed solutions, reducing lifecycle costs, minimizing schedule delays and risk, and increasing the resilience and reliability of every project Raimore delivers.</p><p>When engineers and field crews learn from each other, everyone wins. Plans that reflect real site conditions lead to fewer RFIs. Crews who understand the design intent build it right the first time.</p>",
+        primary: { label: "See our work", href: "project.html" } }
+    };
+    const modal = document.getElementById('rsModal');
+    const mImg = document.getElementById('rsModalImg'), mCrumb = document.getElementById('rsModalCrumb'),
+          mTitle = document.getElementById('rsModalTitle'), mLede = document.getElementById('rsModalLede'),
+          mCaps = document.getElementById('rsModalCaps'), mCopy = document.getElementById('rsModalCopy'),
+          mActions = document.getElementById('rsModalActions');
+    let lastFocus = null;
+    function openModal(key) {
+      const s = SERVICES[key]; if (!s) return;
+      lastFocus = document.activeElement;
+      mImg.src = s.hero; mImg.alt = s.crumb; mCrumb.textContent = s.crumb; mTitle.innerHTML = s.title;
+      mLede.textContent = s.lede; mCaps.innerHTML = s.capabilities.map(c => '<li>' + c + '</li>').join(''); mCopy.innerHTML = s.copy;
+      const primaryBtn = s.primary ? '<a href="' + s.primary.href + '" class="rs-modal-btn rs-modal-btn-primary">' + s.primary.label + ' <span class="arrow">&#8594;</span></a>' : '';
+      mActions.innerHTML = primaryBtn + '<button type="button" class="rs-modal-btn rs-modal-btn-ghost" id="rsModalCloseAlt">Close</button>';
+      const altClose = document.getElementById('rsModalCloseAlt'); if (altClose) altClose.addEventListener('click', closeModal);
+      modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('rs-lock'); document.body.classList.add('rs-lock'); modal.scrollTop = 0;
+      setTimeout(() => document.getElementById('rsModalClose').focus(), 50);
+    }
+    function closeModal() {
+      modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('rs-lock'); document.body.classList.remove('rs-lock');
+      if (lastFocus && typeof lastFocus.focus === 'function') { try { lastFocus.focus(); } catch (e) {} }
+    }
+    document.querySelectorAll('.rs-card[data-service]').forEach(card => {
+      card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
+      card.addEventListener('click', (e) => { if (e.target.closest('[data-stop]')) return; openModal(card.getAttribute('data-service')); });
+      card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { if (e.target.closest('[data-stop]')) return; e.preventDefault(); openModal(card.getAttribute('data-service')); } });
+    });
+    document.getElementById('rsModalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target.hasAttribute('data-close')) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+  })();
+  </script>
+
+  <style>
+    .rt-root {
+      --rt-card: #FFFFFF; --rt-ink: #0F1216; --rt-ink-soft: #44484E; --rt-muted: #8A8F96;
+      --rt-line: #E8E6E0; --rt-accent: #BA2334; --rt-yellow: #FFBA00;
+      --rt-font-display: "Funnel Display", "Inter", sans-serif; --rt-font-body: "Inter", sans-serif;
+      font-family: var(--rt-font-body); color: var(--rt-ink); background: transparent;
+      width: 100%; max-width: 100%; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      container-type: inline-size; container-name: rtest; padding: clamp(72px, 9vw, 140px) clamp(24px, 5vw, 80px); position: relative;
+    }
+    .rt-inner { max-width: 1280px; margin: 0 auto; position: relative; }
+    .rt-header { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
+    .rt-label { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--rt-accent); margin: 0 0 20px 0; }
+    .rt-label::before, .rt-label::after { content: ""; width: 24px; height: 1.5px; background: var(--rt-accent); }
+    .rt-title { font-family: var(--rt-font-display); font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1.05; letter-spacing: -.025em; color: #FFFFFF; margin: 0 0 16px 0; }
+    .rt-title .accent { background-image: linear-gradient(90deg, var(--rt-yellow) 50%, var(--rt-accent) 50%); background-size: 200% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent; transition: background-position .65s cubic-bezier(.7,0,.3,1); }
+    .rt-title:hover .accent { background-position: 0% 0; }
+    .rt-sub { font-size: clamp(15px, 1.15vw, 17px); line-height: 1.6; color: rgba(255,255,255,.75); margin: 0 auto; max-width: 56ch; }
+    .rt-carousel { position: relative; max-width: 980px; margin: 0 auto; }
+    .rt-carousel::before { content: "\201C"; position: absolute; top: -50px; left: -10px; font-family: var(--rt-font-display); font-weight: 800; font-size: clamp(140px, 18vw, 240px); line-height: 1; color: var(--rt-accent); opacity: .18; pointer-events: none; user-select: none; z-index: 0; }
+    .rt-stage { position: relative; z-index: 1; overflow: hidden; border-radius: 20px; }
+    .rt-track { display: flex; transition: transform .7s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+    .rt-slide { flex: 0 0 100%; min-width: 100%; padding: 0; }
+    .rt-card { background: var(--rt-card); border-radius: 20px; padding: clamp(36px, 5vw, 64px) clamp(28px, 5vw, 72px); position: relative; border: 1px solid var(--rt-line); min-height: 360px; display: flex; flex-direction: column; justify-content: center; }
+    .rt-quote-mark { color: var(--rt-accent); font-family: var(--rt-font-display); font-weight: 800; font-size: 48px; line-height: .6; margin: 0 0 20px 0; opacity: .85; }
+    .rt-project-tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--rt-accent); background: rgba(186,35,52,.08); padding: 5px 10px; border-radius: 999px; margin-bottom: 18px; }
+    .rt-quote { font-family: var(--rt-font-display); font-weight: 500; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; letter-spacing: -.01em; color: var(--rt-ink); margin: 0 0 32px 0; max-width: 64ch; }
+    .rt-quote em { font-style: normal; font-weight: 700; color: var(--rt-accent); }
+    .rt-attr { display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid var(--rt-line); }
+    .rt-avatar { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 50%; background: #FFFFFF; border: 1px solid var(--rt-line); display: flex; align-items: center; justify-content: center; font-family: var(--rt-font-display); font-weight: 800; font-size: 14px; overflow: hidden; padding: 8px; flex-shrink: 0; }
+    .rt-avatar img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .rt-avatar.is-text { background: linear-gradient(135deg, #FDF0EE 0%, #F8DCD7 100%); color: var(--rt-accent); padding: 0; border: none; font-size: 16px; }
+    .rt-attr-text { flex: 1; min-width: 0; }
+    .rt-attr-name { font-family: var(--rt-font-display); font-weight: 700; font-size: 15.5px; line-height: 1.3; letter-spacing: -.01em; color: var(--rt-ink); margin: 0; }
+    .rt-attr-role { font-size: 13px; line-height: 1.4; color: var(--rt-muted); margin: 2px 0 0 0; }
+    .rt-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; gap: 24px; }
+    .rt-arrows { display: flex; gap: 10px; }
+    .rt-arrow { width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); border-radius: 50%; color: #FFFFFF; font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .25s cubic-bezier(.2,.7,.2,1); font-family: inherit; backdrop-filter: blur(6px); }
+    .rt-arrow:hover:not(:disabled) { background: var(--rt-accent); border-color: var(--rt-accent); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px -8px rgba(186,35,52,.5); }
+    .rt-dots { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center; max-width: 320px; }
+    .rt-dot { width: 7px; height: 7px; border-radius: 50%; border: none; background: rgba(255,255,255,.25); cursor: pointer; padding: 0; transition: all .3s ease; }
+    .rt-dot:hover { background: rgba(255,255,255,.5); }
+    .rt-dot.is-active { background: var(--rt-accent); width: 22px; border-radius: 999px; }
+    .rt-counter { font-family: var(--rt-font-display); font-weight: 600; font-size: 13px; letter-spacing: .05em; color: rgba(255,255,255,.6); font-variant-numeric: tabular-nums; min-width: 50px; text-align: right; }
+    .rt-counter .rt-cur { color: #FFFFFF; }
+    @keyframes rt-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .rt-reveal { opacity: 0; animation: rt-rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+    .rt-reveal.d1 { animation-delay: .05s; } .rt-reveal.d2 { animation-delay: .15s; } .rt-reveal.d3 { animation-delay: .25s; }
+    @container rtest (max-width: 700px) { .rt-card { padding: 32px 24px; min-height: 420px; } .rt-controls { flex-wrap: wrap; gap: 16px; justify-content: center; } .rt-counter { display: none; } .rt-carousel::before { font-size: 120px; top: -30px; } }
+    @container rtest (max-width: 480px) { .rt-root { padding: 56px 16px; } .rt-quote { font-size: 16px; } .rt-attr { gap: 12px; } .rt-attr-name { font-size: 14px; } .rt-attr-role { font-size: 12px; } .rt-arrow { width: 44px; height: 44px; } }
+    @media (prefers-reduced-motion: reduce) { .rt-reveal { opacity: 1 !important; transform: none !important; animation: none !important; } .rt-track { transition: none !important; } }
+  </style>
+  <section class="testi-shell">
+    <div class="testi-bg"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/home-testi-bg.webp" alt="" /></div>
+    <div class="rt-root">
+      <div class="rt-inner">
+        <header class="rt-header">
+          <p class="rt-label rt-reveal d1">Client Voices</p>
+          <h2 class="rt-title rt-reveal d2">What our partners <span class="accent">say.</span></h2>
+          <p class="rt-sub rt-reveal d3">Public agencies, project owners, school communities, and prime contractors share what it's like to work with Raimore.</p>
+        </header>
+        <div class="rt-carousel rt-reveal d3" aria-label="Client testimonials">
+          <div class="rt-stage">
+            <div class="rt-track" id="rtTrack">
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Transit Substation &middot; Light Rail Access &middot; Open Space</span>
+                  <p class="rt-quote">I have worked with Raimore since 2021 on several complex public infrastructure projects, including a transit substation, access improvements to an existing light rail transit system, and public open space improvements associated with affordable housing developments. Throughout these projects, <em>Ashley and the entire Raimore field team have consistently demonstrated excellent communication, strong problem-solving skills, and effective construction management.</em> They take a proactive approach to overcoming challenges and work collaboratively with owners, consultants, and project stakeholders to keep projects moving forward. As a Senior Project Manager with TriMet, I have found Raimore to be a reliable and professional contractor that consistently delivers high-quality work while maintaining project schedules and managing costs responsibly. I confidently recommend Raimore to any organization seeking a capable, dependable, and trustworthy construction partner.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-trimet.webp" alt="TriMet" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Senior Project Manager</p><p class="rt-attr-role">TriMet</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Division Transit Project</span>
+                  <p class="rt-quote">The Columbia Slough is an area of great cultural and historical significance to the Native communities of the Pacific Northwest. Over the years, I have had a front-row seat to <em>Raimore's commitment to communities of color</em>, and their work with Advanced Tribal on TriMet's Division Transit Project was award-winning. I am excited to see the opportunities created if the Raimore team is selected for this project.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-naya.webp" alt="NAYA Family Center" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Molly Washington</p><p class="rt-attr-role">Board Chair, NAYA Family Center</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Outer Division Multi-Modal Safety Project</span>
+                  <p class="rt-quote">PBOT was very fortunate to have Portland's local Raimore Construction as the prime contractor. They successfully delivered the original scope within budget, masterfully coordinated concurrent work and utility relocations, met aggressive schedule deadlines, and kept crews and the traveling public safe. <em>They went beyond the role of a typical prime contractor and became a true partner on the project</em>, and met or exceeded their impressive DBE subcontracting goals. Any project is lucky to have Raimore on the team!</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-pbot.webp" alt="Portland Bureau of Transportation" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Liz Tillstrom</p><p class="rt-attr-role">Capital Project Manager, PBOT</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">82nd Avenue Major Maintenance Project</span>
+                  <p class="rt-quote">Raimore Construction has been a fantastic partner on PBOT's 82nd Avenue Major Maintenance Project. The Raimore team has built positive business and community relationships and has taken time to understand business and community needs. <em>Because of these relationships, Raimore brings an informed and empathetic perspective to construction impacts</em>, proactively adjusting their work plans to reduce impacts when possible.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-pbot.webp" alt="Portland Bureau of Transportation" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Briana Orr</p><p class="rt-attr-role">Capital Project Manager, PBOT</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">82nd Avenue Project</span>
+                  <p class="rt-quote">We want to extend our sincere appreciation to Raimore Construction for the outstanding work they have done on the 82nd Avenue project. Their professionalism, clear communication, and ongoing support have made a real difference for our school community. <em>Working with a team so dedicated to safety, collaboration, and quality has been a pleasure.</em> Thank you, Raimore!</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-pps.webp" alt="Portland Public Schools" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Adam Skyles</p><p class="rt-attr-role">Principal, Leodis V. McDaniel High School (PPS)</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Gateway Green Park</span>
+                  <p class="rt-quote">During Gateway Green Park, Raimore has instilled a lot of confidence with their professionalism, organization, forethought into problems, and above all else, flexibility. <em>Many contractors would have used these challenges as an opportunity to exploit the issue for financial benefit, but Raimore's team demonstrated the opposite</em>, working collaboratively to minimize negative impacts and maximize project potential. Their roots in the Portland community come through in their day-to-day operations and work ethic.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-parks.webp" alt="Portland Parks &amp; Recreation" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Ross Swanson</p><p class="rt-attr-role">Capital Project Manager, Portland Parks &amp; Recreation</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">I-5 Rose Quarter Infrastructure Renovations</span>
+                  <p class="rt-quote">It has been a genuine pleasure partnering with Raimore Construction as our prime contractor on the current I-5 Infrastructure Renovations, with several more projects planned ahead. They stand out with constant communication, immediate in-person and online support, thorough training on AASHTOWare and Oregon's reporting systems, and <em>a rare willingness to invest in our team's growth, even at the expense of their own profit.</em> Truly an outstanding, generous partner.</p>
+                  <div class="rt-attr"><div class="rt-avatar is-text" aria-hidden="true">CC</div><div class="rt-attr-text"><p class="rt-attr-name">Dominic Waters</p><p class="rt-attr-role">President, Crossover Construction</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Nelson Parking Lot Improvements</span>
+                  <p class="rt-quote">We are pleased with Raimore Construction's professionalism, dedication, and commitment to quality in completing this relatively small but complex parking lot project, which included demolition, soil remediation, and a community plaza. <em>This was our first collaboration with Raimore Construction, and we are excited to have partnered with them on a project that was completed with 100% MWESB participation.</em></p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-prosper.webp" alt="Prosper Portland" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Elise Hendrickson</p><p class="rt-attr-role">Project Manager, Prosper Portland</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Division Transit Project</span>
+                  <p class="rt-quote">While there is no doubt that Raimore is technically proficient in their work, <em>it is their commitment to the team effort that makes them highly effective.</em> As an owner, having a contractor that understands the importance of partnerships and a proactive approach has proven to be invaluable on the Division Transit Project.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-trimet.webp" alt="TriMet" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Michael Kiser</p><p class="rt-attr-role">Project Director, TriMet</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">PMLR Deferred Shelter Installation</span>
+                  <p class="rt-quote"><em>Raimore did an incredible job of protecting the existing finish work and matching the put-backs. The concrete looks great!</em></p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-trimet.webp" alt="TriMet" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Jeff Johnson</p><p class="rt-attr-role">Senior Project Manager, TriMet</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">PMLR Deferred Shelter Installation</span>
+                  <p class="rt-quote">I do want to say what a privilege it has been working with Jeff and his entire crew! <em>You clearly demonstrated that safety was a priority throughout the project!</em> I am proud of you and your entire crew.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-trimet.webp" alt="TriMet" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Mike Sheets</p><p class="rt-attr-role">Safety Specialist, TriMet</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <span class="rt-project-tag">Division Transit Project</span>
+                  <p class="rt-quote"><em>Bill and Raimore have been impeccable in creating a pre-construction team that is collaborative and proactive in reducing project risk</em> and establishing cost and schedule certainty through their involvement.</p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-trimet.webp" alt="TriMet" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Michael Kiser</p><p class="rt-attr-role">DTP Project Manager, TriMet</p></div></div>
+                </div>
+              </div>
+
+              <div class="rt-slide" role="group" aria-roledescription="slide">
+                <div class="rt-card">
+                  <p class="rt-quote-mark" aria-hidden="true">&#8220;</p>
+                  <p class="rt-quote">Tayo, Johnny, and Ashley have all gone the extra mile, time and time again, please let them know how much this means to an Owner's Rep. Never complain, just get the job done. <em>Very few folks in my book of 40-plus years have met this same high standard that I carry.</em></p>
+                  <div class="rt-attr"><div class="rt-avatar"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/pl-parks.webp" alt="Portland Parks &amp; Recreation" loading="lazy" /></div><div class="rt-attr-text"><p class="rt-attr-name">Dave Obern</p><p class="rt-attr-role">Capital Project Manager, Portland Parks &amp; Recreation</p></div></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="rt-controls">
+            <div class="rt-arrows">
+              <button class="rt-arrow" id="rtPrev" aria-label="Previous testimonial" type="button">&#8249;</button>
+              <button class="rt-arrow" id="rtNext" aria-label="Next testimonial" type="button">&#8250;</button>
+            </div>
+            <div class="rt-dots" id="rtDots" role="tablist" aria-label="Testimonial navigation"></div>
+            <div class="rt-counter" aria-hidden="true"><span class="rt-cur" id="rtCur">01</span><span> / </span><span id="rtTotal">12</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function() {
+    const track = document.getElementById('rtTrack'); if (!track) return;
+    const slides = track.querySelectorAll('.rt-slide');
+    const prevBtn = document.getElementById('rtPrev'), nextBtn = document.getElementById('rtNext');
+    const dotsWrap = document.getElementById('rtDots'), curEl = document.getElementById('rtCur'), totalEl = document.getElementById('rtTotal');
+    const total = slides.length;
+    let index = 0, autoTimer = null, isPaused = false; const AUTO_DELAY = 7000;
+    for (let i = 0; i < total; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'rt-dot' + (i === 0 ? ' is-active' : '');
+      btn.setAttribute('role', 'tab'); btn.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      btn.dataset.index = i; btn.type = 'button'; dotsWrap.appendChild(btn);
+    }
+    const dots = dotsWrap.querySelectorAll('.rt-dot');
+    totalEl.textContent = String(total).padStart(2, '0');
+    function goTo(n) { if (n < 0) n = total - 1; if (n >= total) n = 0; index = n; track.style.transform = 'translateX(-' + (index * 100) + '%)'; dots.forEach((d, i) => d.classList.toggle('is-active', i === index)); curEl.textContent = String(index + 1).padStart(2, '0'); }
+    function startAuto() { if (autoTimer || isPaused) return; autoTimer = setInterval(() => goTo(index + 1), AUTO_DELAY); }
+    function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function resetAuto() { stopAuto(); if (!isPaused) startAuto(); }
+    prevBtn.addEventListener('click', () => { goTo(index - 1); resetAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(index + 1); resetAuto(); });
+    dotsWrap.addEventListener('click', (e) => { const b = e.target.closest('.rt-dot'); if (!b) return; goTo(parseInt(b.dataset.index, 10)); resetAuto(); });
+    const carousel = track.closest('.rt-carousel');
+    carousel.addEventListener('mouseenter', () => { isPaused = true; stopAuto(); });
+    carousel.addEventListener('mouseleave', () => { isPaused = false; startAuto(); });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) startAuto(); else stopAuto(); }); }, { threshold: 0.25 });
+      io.observe(carousel);
+    } else { startAuto(); }
+    let startX = 0, startY = 0, isSwiping = false;
+    track.addEventListener('touchstart', (e) => { if (!e.touches.length) return; startX = e.touches[0].clientX; startY = e.touches[0].clientY; isSwiping = true; stopAuto(); }, { passive: true });
+    track.addEventListener('touchend', (e) => { if (!isSwiping) return; isSwiping = false; const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX; const dx = endX - startX; if (dx > 50) goTo(index - 1); else if (dx < -50) goTo(index + 1); resetAuto(); });
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { isPaused = true; stopAuto(); }
+    goTo(0);
+  })();
+  </script>
+
+  <section class="gallery">
+    <div class="container">
+      <span class="eyebrow">Project Gallery</span>
+      <h2>Gallery of Trusted Constructions</h2>
+      <div class="gallery-grid">
+        <a class="g-1" href="/project"><img src="images/gallery-1.jpg" alt="Sidewalk concrete pour" /></a>
+        <a class="g-2" href="/project"><img src="images/gallery-2.jpg" alt="Raimore crew on site" /></a>
+        <a class="g-3" href="/project"><img src="images/gallery-3.jpg" alt="Placing concrete" /></a>
+        <a class="g-4" href="/project"><img src="images/gallery-4.jpg" alt="Raimore crew at work" /></a>
+        <a class="g-5" href="/project"><img src="images/gallery-5.jpg" alt="Crew with concrete mixer" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rf-root">
+    <div class="rf-inner">
+      <header class="rf-header">
+        <p class="rf-label">FAQ</p>
+        <h2 class="rf-title">Frequently<br/><span class="accent">asked questions.</span></h2>
+        <p class="rf-sub">Quick answers about our work, qualifications, and how we partner with owners, agencies, and contractors across the Pacific Northwest.</p>
+      </header>
+      <div class="rf-list">
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>What type of construction projects does Raimore handle?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>Raimore Construction specializes in <strong>heavy civil and general contracting work</strong> across the Pacific Northwest. Our typical projects include:</p>
+            <ul>
+              <li>Transportation corridors and bus rapid transit infrastructure</li>
+              <li>Light rail platforms, transit centers, and railroad track work</li>
+              <li>Roadway reconstruction and major maintenance projects</li>
+              <li>Parks, public spaces, and environmental restoration</li>
+              <li>Underground utilities and earthwork</li>
+              <li>Concrete self-perform, masonry, and demolition</li>
+            </ul>
+            <p>We work on both public and private sector projects and have delivered work for TriMet, ODOT, PBOT, Portland Parks &amp; Recreation, Metro, and Prosper Portland.</p>
+          </div></div>
+        </div>
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>Where is Raimore Construction located, and what areas do you serve?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>We are headquartered in <strong>Portland, Oregon</strong>, at 2522 NE Martin Luther King Jr Blvd, and we primarily serve the Portland metro area and surrounding regions across the Pacific Northwest.</p>
+            <p>Project locations may vary depending on scope and client requirements. For the right project, we have the bonding capacity and field resources to mobilize across Oregon and southwest Washington.</p>
+          </div></div>
+        </div>
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>Do you work on public sector projects?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>Yes, public sector work is a core part of what we do. Raimore has extensive experience delivering projects for state agencies, transit authorities, municipalities, and school districts, and we are <strong>well-versed in compliance, reporting, and regulatory standards</strong> required for government and agency-led construction initiatives.</p>
+            <p>We deliver public projects under multiple delivery methods including <strong>CM/GC, design-build, hard bid, and joint venture</strong> structures.</p>
+          </div></div>
+        </div>
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>What does Raimore self-perform?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>We don't sub out the hard parts, we self-perform them. Our in-house capabilities include:</p>
+            <ul>
+              <li>Concrete placement, forming, and finishing</li>
+              <li>Earthwork, excavation, and site grading</li>
+              <li>Underground utilities and storm/sanitary systems</li>
+              <li>Asphalt paving and roadway restoration</li>
+              <li>Brick, masonry, and pavement restoration</li>
+              <li>Demolition and selective demo</li>
+              <li>Railroad track work and platform construction</li>
+            </ul>
+            <p>Direct ownership of the work means tighter quality control, faster response to field changes, and better accountability for owners.</p>
+          </div></div>
+        </div>
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>How do you support DBE and emerging subcontractors?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>Supporting emerging firms is foundational to Raimore, it's how the company itself was built. Through our <strong>program development, mentoring, and training services</strong>, we help DBE, MBE, WBE, and ESB contractors grow their capacity, professionalize their operations, and compete on equal footing.</p>
+            <p>On many of our projects, we have met or exceeded DBE participation goals, including a recent project completed with <strong>100% MWESB participation</strong>.</p>
+          </div></div>
+        </div>
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>Can Raimore handle work in active right-of-way?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>Yes, it's one of our core specialties. We routinely deliver complex work <strong>around active transit, traffic, and adjacent occupied buildings</strong> with zero service disruption. Phased staging, night work, traffic control, public outreach, and stakeholder coordination are core competencies for our team.</p>
+            <p>Recent examples include the 82nd Avenue corridor projects (delivered under live PBOT traffic), Hollywood Transit Center (built around active TriMet service), and PMLR shelter installations completed entirely during night work windows.</p>
+          </div></div>
+        </div>
+
+        <div class="rf-item rf-inview">
+          <button class="rf-q" type="button" aria-expanded="false"><span>How do I request a bid or start a project with Raimore?</span><span class="rf-icon" aria-hidden="true"></span></button>
+          <div class="rf-a"><div class="rf-a-inner">
+            <p>The fastest way to start a conversation is through our <a href="/contact">contact form</a>, tell us about your project, timeline, and scope, and our team will get back to you within one business day.</p>
+            <p>For urgent matters, you can also reach us directly at <strong>(503) 493-3533</strong> or email info@raimore.com.</p>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <script>
+  (function() {
+    document.querySelectorAll('.rf-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.rf-item');
+        const isOpen = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.rf-inview').forEach(el => el.classList.add('is-visible')); return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rf-inview').forEach(el => io.observe(el));
+  })();
+  </script>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta">
+        <h2>Build Better <span class="gold">Stronger</span> Together</h2>
+        <a href="/contact" class="btn btn-gold">Get Involved Today <span class="arr">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="ft-inner">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-word"><span class="ft-word-main">Raimore</span><span class="ft-word-sub">Construction</span></div>
+          <p class="ft-desc">A heavy civil contractor headquartered in Portland, Oregon, delivering infrastructure that builds better, stronger communities across the Pacific Northwest.</p>
+        </div>
+        <nav class="ft-col">
+          <h4>Company</h4>
+          <a href="/about-us">About Us</a>
+          <a href="/leadership">Leadership</a>
+          <a href="/diversity">Diversity</a>
+          <a href="/safety">Safety</a>
+          <a href="/community">Community</a>
+        </nav>
+        <nav class="ft-col">
+          <h4>Explore</h4>
+          <a href="/services">Services</a>
+          <a href="/project">Projects</a>
+          <a href="/careers">Careers</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <div class="ft-col ft-contact">
+          <h4>Get in Touch</h4>
+          <a href="mailto:info@raimore.com">info@raimore.com</a>
+          <a href="tel:5034933533">503.493.3533</a>
+          <p>2522 NE MLK Jr Blvd<br />Portland, OR 97212</p>
+          <p class="ft-lic">MBE &middot; CCB# 176521</p>
+        </div>
+      </div>
+
+      <div class="ft-divider"></div>
+
+      <div class="ft-bottom">
+        <p class="ft-copy">&copy; 2026 Raimore Construction. All rights reserved. &nbsp;&middot;&nbsp; Built by <a href="https://rehemasolutions.com/">Rehema Solutions</a></p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/raimore-construction-llc/" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></a>
+          <a href="https://x.com/" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    :root[data-theme="dark"] .bt-banner { background:#0E1116; --bt-ink:#EDEFF2; --bt-soft:#AEB4BD; }
+    :root[data-theme="dark"] .tt-root { --tt-bg:#0E1116; --tt-ink:#EDEFF2; }
+    :root[data-theme="dark"] .rw-root { --rw-bg:#0E1116; --rw-bg-alt:#171B21; --rw-card:#171B21; --rw-ink:#EDEFF2; --rw-ink-soft:#AEB4BD; --rw-line:rgba(255,255,255,.12); }
+    :root[data-theme="dark"] .raimore-services { --r-bg:#0E1116; --r-card:#171B21; --r-ink:#EDEFF2; --r-ink-soft:#AEB4BD; --r-muted:#9098A2; --r-line:rgba(255,255,255,.12); --r-chip-bg:#1F242B; }
+    :root[data-theme="dark"] .rt-root { --rt-card:#171B21; --rt-ink:#EDEFF2; --rt-ink-soft:#AEB4BD; --rt-muted:#9098A2; --rt-line:rgba(255,255,255,.12); }
+  </style>
+  <script src="js/main.js?v=6"></script>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"){t="light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community, Raimore</title>
+  <meta name="description" content="Build your career at Raimore Construction. Apply for trade roles through your union local, or explore staff positions in field engineering, project management, safety, and quality across the Pacific Northwest." />
+  <link rel="icon" href="images/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="/" class="brand" aria-label="Raimore Construction home">
+        <img src="images/logo-white.png" alt="Raimore Construction" class="brand-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li class="has-dropdown">
+          <a href="/about-us">Company <span class="caret">&#9662;</span></a>
+          <ul class="dropdown">
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/leadership">Leadership</a></li>
+            <li><a href="/diversity">Diversity</a></li>
+            <li><a href="/safety">Safety</a></li>
+            <li><a href="/community">Community</a></li>
+          </ul>
+        </li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><a href="/careers">Careers</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme" title="Toggle light / dark"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <div class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <style>
+    .cmx { --bg:#FFFFFF; --alt:#F7F6F3; --ink:#14110D; --soft:#5A5750; --line:#E7E2D9; --red:#BA2334; --gold:#E0902A;
+      font-family: var(--body,"Inter",sans-serif); color: var(--ink); }
+    .cmx-inner { max-width: 1280px; margin: 0 auto; padding: 0 clamp(24px,5vw,80px); }
+    .cmx-eyebrow { display:inline-flex; align-items:center; gap:12px; font-size:12px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--red); margin:0 0 18px; }
+    .cmx-eyebrow.center::before, .cmx-eyebrow.center::after { content:""; width:28px; height:2px; background:var(--gold); }
+    .cmx-eyebrow.line::before { content:""; width:28px; height:2px; background:var(--red); }
+    .cmx-h2 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:clamp(28px,3.4vw,42px); line-height:1.08; letter-spacing:-.025em; color:var(--ink); margin:0; }
+    .cmx-h2 em { font-style:normal; color:var(--red); }
+
+    .cmx-hero { background:var(--alt); }
+    .cmx-hero-grid { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1.02fr 1fr; gap:clamp(28px,4vw,56px); align-items:center;
+      padding: clamp(120px,15vw,168px) clamp(24px,5vw,80px) clamp(56px,7vw,88px); }
+    .cmx-hero h1 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:clamp(44px,6vw,78px); line-height:.98; letter-spacing:-.03em; margin:0 0 clamp(20px,2.4vw,28px); color:var(--ink); }
+    .cmx-hero h1 em { font-style:normal; color:var(--red); }
+    .cmx-hero p { font-size:clamp(15px,1.3vw,17px); line-height:1.65; color:var(--soft); margin:0; max-width:44ch; }
+    .cmx-hero-media { position:relative; min-height:clamp(300px,34vw,440px); height:100%; border-radius:14px; overflow:hidden; }
+    .cmx-hero-media img { width:100%; height:100%; object-fit:cover; display:block; }
+    .cmx-hero-media::after { content:""; position:absolute; left:0; right:0; bottom:-2px; height:38%;
+      background: linear-gradient(180deg, transparent, rgba(186,35,52,.0) 20%, rgba(186,35,52,.85)); clip-path: polygon(0 55%, 100% 12%, 100% 100%, 0 100%); }
+    .cmx-hero-media::before { content:""; position:absolute; left:0; right:0; bottom:0; height:8px; background:var(--gold); z-index:2; }
+
+    .cmx-commit { background:var(--bg); padding:clamp(64px,8vw,104px) 0; }
+    .cmx-commit .cmx-head { text-align:center; margin-bottom:clamp(44px,5vw,64px); }
+    .cmx-pillars { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(24px,3vw,44px); }
+    .cmx-pillar { text-align:center; display:flex; flex-direction:column; align-items:center; }
+    .cmx-pillar-ic { width:78px; height:78px; border-radius:50%; border:1.5px solid rgba(224,144,42,.5); background:rgba(224,144,42,.06); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--gold); }
+    .cmx-pillar-ic svg { width:34px; height:34px; }
+    .cmx-pillar h3 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:700; font-size:18px; color:var(--ink); margin:0 0 10px; }
+    .cmx-pillar p { font-size:13.5px; line-height:1.6; color:var(--soft); margin:0; max-width:26ch; }
+
+    .cmx-feat { background:var(--alt); padding:clamp(64px,8vw,104px) 0; }
+    .cmx-feat-head { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:clamp(32px,4vw,48px); }
+    .cmx-feat-title { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:clamp(22px,2.4vw,30px); letter-spacing:-.02em; color:var(--red); text-transform:uppercase; margin:0; }
+    .cmx-viewall { font-size:13px; font-weight:700; color:var(--red); text-decoration:none; }
+    .cmx-feat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2vw,24px); }
+    .cmx-proj { background:var(--bg); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+    .cmx-proj-img { aspect-ratio:16/11; overflow:hidden; }
+    .cmx-proj-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .cmx-proj-body { padding:clamp(16px,1.6vw,20px); display:flex; flex-direction:column; gap:10px; }
+    .cmx-proj h4 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:700; font-size:16px; line-height:1.2; color:var(--ink); margin:0 0 4px; }
+    .cmx-proj dl { margin:0; }
+    .cmx-proj dt { font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-top:8px; }
+    .cmx-proj dd { margin:2px 0 0; font-size:12.5px; line-height:1.5; color:var(--soft); }
+    .cmx-proj .cmx-proj-link { margin-top:auto; padding-top:12px; font-size:12.5px; font-weight:700; color:var(--red); text-decoration:none; }
+
+    .cmx-people { background:var(--bg); padding:clamp(64px,8vw,104px) 0; }
+    .cmx-people-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(18px,2vw,26px); margin-top:clamp(28px,3vw,40px); }
+    .cmx-person { display:flex; gap:16px; align-items:stretch; background:var(--alt); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .cmx-person-photo { flex:0 0 38%; overflow:hidden; }
+    .cmx-person-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+    .cmx-person-q { padding:18px 18px 18px 4px; display:flex; flex-direction:column; justify-content:center; }
+    .cmx-person-q .qm { color:var(--gold); font-family:var(--display); font-size:30px; line-height:.4; }
+    .cmx-person-q p { font-family:var(--display,"Funnel Display",sans-serif); font-weight:600; font-size:16px; line-height:1.3; color:var(--ink); margin:8px 0 10px; }
+    .cmx-person-q span { font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--red); }
+
+    .cmx-journey { background:var(--alt); padding:clamp(64px,8vw,104px) 0; }
+    .cmx-journey-head { margin-bottom:clamp(40px,5vw,56px); }
+    .cmx-timeline { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; position:relative; margin-bottom:clamp(48px,6vw,72px); }
+    .cmx-timeline::before { content:""; position:absolute; top:7px; left:8%; right:8%; height:2px; background:linear-gradient(90deg, rgba(224,144,42,.25), rgba(224,144,42,.8), rgba(224,144,42,.25)); }
+    .cmx-mile { position:relative; text-align:center; padding-top:26px; }
+    .cmx-mile::before { content:""; position:absolute; top:0; left:50%; transform:translateX(-50%); width:14px; height:14px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 5px rgba(224,144,42,.14); }
+    .cmx-mile-year { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:clamp(19px,2vw,23px); color:var(--ink); margin:0 0 5px; }
+    .cmx-mile-label { font-size:12.5px; line-height:1.45; color:var(--soft); margin:0 auto; max-width:16ch; }
+    .cmx-numbers { border-top:1px solid var(--line); padding-top:clamp(36px,4vw,52px); }
+    .cmx-num-grid { list-style:none; margin:20px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 40px; }
+    .cmx-num-grid li { position:relative; padding-left:30px; font-size:14.5px; line-height:1.5; color:var(--ink); }
+    .cmx-num-grid li::before { content:""; position:absolute; left:0; top:1px; width:19px; height:19px; border-radius:50%; background:rgba(224,144,42,.14); }
+    .cmx-num-grid li::after { content:""; position:absolute; left:6px; top:7px; width:6px; height:4px; border-left:2px solid var(--gold); border-bottom:2px solid var(--gold); transform:rotate(-45deg); }
+
+    .cmx-where { background:var(--bg); padding:clamp(64px,8vw,104px) 0; }
+    .cmx-where-top { display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px); margin-bottom:clamp(36px,4vw,52px); align-items:end; }
+    .cmx-where-top h2 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:clamp(30px,4vw,48px); line-height:1.02; letter-spacing:-.03em; margin:0; color:var(--ink); }
+    .cmx-where-top h2 em { font-style:normal; color:var(--red); }
+    .cmx-where-top p { font-size:14.5px; line-height:1.7; color:var(--soft); margin:0; }
+    .cmx-where-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(20px,2.4vw,32px) clamp(40px,5vw,72px); }
+    .cmx-where-card { display:flex; gap:16px; padding-top:20px; border-top:1px solid var(--line); }
+    .cmx-where-ic { flex-shrink:0; width:46px; height:46px; border-radius:10px; background:rgba(186,35,52,.07); color:var(--red); display:flex; align-items:center; justify-content:center; }
+    .cmx-where-ic svg { width:24px; height:24px; }
+    .cmx-where-card h4 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:.03em; color:var(--red); margin:0 0 6px; }
+    .cmx-where-card p { font-size:13px; line-height:1.55; color:var(--soft); margin:0; }
+
+    .cmx-cta { background:var(--red); color:#fff; }
+    .cmx-cta-inner { max-width:1280px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+      padding: clamp(32px,4vw,44px) clamp(24px,5vw,80px); }
+    .cmx-cta p { font-family:var(--display,"Funnel Display",sans-serif); font-weight:700; font-size:clamp(17px,1.8vw,22px); line-height:1.3; margin:0; max-width:40ch; }
+    .cmx-cta a { flex-shrink:0; display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:#14110D; font-weight:800; font-size:14px; letter-spacing:.02em; text-transform:uppercase; text-decoration:none; padding:15px 30px; border-radius:999px; transition:transform .2s ease; }
+    .cmx-cta a:hover { transform:translateY(-2px); }
+
+    @media (max-width: 960px) {
+      .cmx-hero-grid { grid-template-columns:1fr; } .cmx-hero-media { order:-1; min-height:280px; }
+      .cmx-pillars { grid-template-columns:repeat(2,1fr); gap:40px 24px; }
+      .cmx-feat-grid { grid-template-columns:repeat(2,1fr); }
+      .cmx-people-grid { grid-template-columns:1fr; }
+      .cmx-where-top { grid-template-columns:1fr; gap:20px; }
+    }
+    @media (max-width: 620px) {
+      .cmx-pillars, .cmx-feat-grid, .cmx-where-grid, .cmx-num-grid { grid-template-columns:1fr; }
+      .cmx-timeline { grid-template-columns:1fr; gap:0; }
+      .cmx-timeline::before { left:7px; right:auto; top:6px; bottom:26px; width:2px; height:auto; }
+      .cmx-mile { text-align:left; padding:0 0 26px 30px; } .cmx-mile::before { left:0; transform:none; } .cmx-mile-label { margin:0; max-width:none; }
+    }
+
+    .cmc { background:#fff; padding: clamp(64px,8vw,104px) 0; --red:#BA2334; --gold:#E0902A; --ink:#14110D; --soft:#5A5750; --line:#E7E2D9; }
+    .cmc-head { margin-bottom: clamp(30px,4vw,46px); }
+    .cmc-head-row { display:grid; grid-template-columns:1.6fr 1fr; gap:clamp(24px,4vw,56px); align-items:end; margin-top:6px; }
+    .cmc-title { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:clamp(30px,4vw,52px); line-height:1.02; letter-spacing:-.03em; color:var(--ink); margin:0; }
+    .cmc-title em { font-style:normal; color:var(--red); }
+    .cmc-head-intro { font-size:15px; line-height:1.65; color:var(--soft); margin:0 0 6px; }
+
+    .cmc-card { border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 24px 50px -34px rgba(20,17,13,.28); }
+    .cmc-tabs { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--line); }
+    .cmc-tab { display:flex; align-items:center; gap:14px; padding:clamp(18px,2vw,24px) clamp(16px,2vw,26px); background:#fff; border:none; border-right:1px solid var(--line); cursor:pointer; text-align:left; transition:background .2s ease; }
+    .cmc-tab:last-child { border-right:none; }
+    .cmc-tab:hover { background:#FBFAF8; }
+    .cmc-tab.is-active { background:#FCF5F4; box-shadow: inset 0 3px 0 var(--red); }
+    .cmc-tab-ic { flex-shrink:0; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1.5px solid var(--gold); color:var(--gold); }
+    .cmc-tab.is-active .cmc-tab-ic, .cmc-tab-ic.red { background:var(--red); border-color:var(--red); color:#fff; }
+    .cmc-tab-ic svg { width:23px; height:23px; }
+    .cmc-tab-txt { display:flex; flex-direction:column; }
+    .cmc-tab-txt b { font-family:var(--display,"Funnel Display",sans-serif); font-weight:700; font-size:clamp(15px,1.4vw,18px); color:var(--ink); }
+    .cmc-tab.is-active .cmc-tab-txt b { color:var(--red); }
+    .cmc-tab-txt i { font-style:normal; font-size:12.5px; color:var(--soft); margin-top:2px; }
+
+    .cmc-panel { display:none; padding:clamp(22px,3vw,34px); }
+    .cmc-panel.is-active { display:block; animation:cmc-fade .35s ease; }
+    @keyframes cmc-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+    .cmc-split { display:grid; grid-template-columns:1.7fr 1fr; gap:clamp(22px,3vw,38px); }
+
+    .cmc-ladders { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.4vw,18px); }
+    .cmc-col { display:flex; flex-direction:column; }
+    .cmc-col-h { text-align:center; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); margin:0 0 12px; }
+    .cmc-node { border:1px solid var(--line); border-radius:10px; padding:13px 11px; text-align:center; background:#fff; }
+    .cmc-node b { display:block; font-size:13px; font-weight:700; color:var(--ink); line-height:1.25; }
+    .cmc-node span { display:block; font-size:13px; font-weight:700; color:var(--ink); margin-top:4px; }
+    .cmc-node i { display:block; font-style:normal; font-size:10.5px; color:var(--red); margin-top:5px; }
+    .cmc-arw { text-align:center; color:var(--red); font-size:17px; line-height:1; padding:6px 0; }
+
+    .cmc-tier { margin-bottom:16px; }
+    .cmc-row2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .cmc-row3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .cmc-row2x2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+
+    .cmc-edu-cols { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,26px); }
+    .cmc-edu-col { border:1px solid var(--line); border-radius:12px; padding:20px; }
+    .cmc-edu-h { font-family:var(--display,"Funnel Display",sans-serif); font-weight:700; font-size:16px; color:var(--red); margin:0 0 2px; }
+    .cmc-edu-sub { font-size:11.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--soft); margin:0 0 14px; }
+    .cmc-edu-list { list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+    .cmc-edu-list li { position:relative; padding-left:18px; font-size:13.5px; line-height:1.4; color:var(--ink); }
+    .cmc-edu-list li::before { content:""; position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+
+    .cmc-more { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:20px; padding:16px 20px; background:#FBFAF8; border:1px solid var(--line); border-radius:12px; }
+    .cmc-more-ic { flex-shrink:0; width:44px; height:44px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; }
+    .cmc-more-ic svg { width:22px; height:22px; }
+    .cmc-more-txt { flex:1 1 auto; min-width:180px; }
+    .cmc-more-txt b { display:block; font-size:14px; color:var(--ink); }
+    .cmc-more-txt span { display:block; font-size:12.5px; color:var(--soft); margin-top:2px; }
+    .cmc-more-link { flex-shrink:0; font-size:13px; font-weight:700; color:var(--red); text-decoration:none; }
+    .cmc-download { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:12px; padding:16px 20px; background:#14110D; border:1px solid #14110D; border-radius:12px; text-decoration:none; transition:transform .2s ease, box-shadow .2s ease; }
+    .cmc-download:hover { transform:translateY(-2px); box-shadow:0 16px 30px -18px rgba(0,0,0,.5); }
+    .cmc-download-ic { flex-shrink:0; width:44px; height:44px; border-radius:50%; background:var(--gold); color:#14110D; display:flex; align-items:center; justify-content:center; }
+    .cmc-download-ic svg { width:22px; height:22px; }
+    .cmc-download-txt { flex:1 1 auto; min-width:180px; }
+    .cmc-download-txt b { display:block; font-size:14px; color:#fff; }
+    .cmc-download-txt span { display:block; font-size:12.5px; color:rgba(255,255,255,.7); margin-top:2px; }
+    .cmc-download-cta { flex-shrink:0; font-size:13px; font-weight:800; color:var(--gold); text-transform:uppercase; letter-spacing:.03em; }
+
+    .cmc-rail { background:#FBFAF8; border:1px solid var(--line); border-radius:12px; padding:clamp(20px,2vw,28px); align-self:start; }
+    .cmc-rail h3 { font-family:var(--display,"Funnel Display",sans-serif); font-weight:800; font-size:20px; text-transform:uppercase; color:var(--red); margin:0 0 12px; }
+    .cmc-rail > p { font-size:14px; line-height:1.6; color:var(--soft); margin:0 0 20px; }
+    .cmc-feats { list-style:none; margin:0 0 22px; padding:0; display:grid; gap:16px; }
+    .cmc-feats li { display:flex; gap:12px; }
+    .cmc-feat-ic { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; }
+    .cmc-feat-ic svg { width:18px; height:18px; }
+    .cmc-feats b { display:block; font-size:14px; color:var(--ink); }
+    .cmc-feats p { font-size:12.5px; line-height:1.5; color:var(--soft); margin:3px 0 0; }
+    .cmc-btn { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:#14110D; font-weight:800; font-size:13px; letter-spacing:.03em; text-transform:uppercase; text-decoration:none; padding:13px 24px; border-radius:8px; transition:transform .2s ease; }
+    .cmc-btn:hover { transform:translateY(-2px); }
+
+    @media (max-width: 920px) {
+      .cmc-head-row { grid-template-columns:1fr; gap:14px; align-items:start; }
+      .cmc-split { grid-template-columns:1fr; }
+    }
+    @media (max-width: 640px) {
+      .cmc-tabs { grid-template-columns:1fr; }
+      .cmc-tab { border-right:none; border-bottom:1px solid var(--line); }
+      .cmc-ladders, .cmc-row2, .cmc-row3, .cmc-row2x2, .cmc-edu-cols { grid-template-columns:1fr; }
+    }
+
+  </style>
+
+  <main class="cmx">
+
+    <section class="cmx-hero">
+      <div class="cmx-hero-grid">
+        <div>
+          <p class="cmx-eyebrow line">Community</p>
+          <h1>We do not give back.<br /><em>We build here.</em></h1>
+          <p>Raimore Construction is rooted in the communities where we live, work, and raise our families. We build infrastructure that strengthens neighborhoods and creates opportunities for generations to come.</p>
+        </div>
+        <div class="cmx-hero-media"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/crew-pair.webp" alt="Raimore workers on site" loading="eager" /></div>
+      </div>
+    </section>
+
+    <section class="cmx-commit">
+      <div class="cmx-inner">
+        <div class="cmx-head"><span class="cmx-eyebrow center">Our Commitment</span></div>
+        <div class="cmx-pillars">
+          <div class="cmx-pillar">
+            <div class="cmx-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
+            <h3>We Hire Locally</h3><p>We believe opportunity should begin at home. We actively recruit and develop talent from the communities where we work.</p>
+          </div>
+          <div class="cmx-pillar">
+            <div class="cmx-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div>
+            <h3>We Build Careers</h3><p>Construction is not just a job. It is a path toward long-term careers, leadership, and financial stability.</p>
+          </div>
+          <div class="cmx-pillar">
+            <div class="cmx-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22 9.2 2"/><path d="M20 22 14.8 2"/><path d="M12 6v2"/><path d="M12 11v2"/><path d="M12 16v2"/></svg></div>
+            <h3>We Invest in Neighborhoods</h3><p>Every completed project leaves behind something lasting: safer infrastructure, stronger businesses, and better places to live.</p>
+          </div>
+          <div class="cmx-pillar">
+            <div class="cmx-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+            <h3>We Build Trust</h3><p>We do what we say and stand behind our work. Long after construction ends, the relationships remain.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cmc">
+      <div class="cmx-inner">
+        <div class="cmc-head">
+          <span class="cmx-eyebrow line">Build Your Career at Raimore</span>
+          <div class="cmc-head-row">
+            <h2 class="cmc-title">Your career can take many paths.<br /><em>We'll help you build it.</em></h2>
+            <p class="cmc-head-intro">From skilled trades to leadership and professional development, explore the opportunities that can take your career further.</p>
+          </div>
+        </div>
+
+        <div class="cmc-card">
+          <div class="cmc-tabs" role="tablist">
+            <button class="cmc-tab is-active" data-tab="trades" role="tab" aria-selected="true">
+              <span class="cmc-tab-ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></span>
+              <span class="cmc-tab-txt"><b>Skilled Trades</b><i>Earn as you learn</i></span>
+            </button>
+            <button class="cmc-tab" data-tab="mgmt" role="tab" aria-selected="false">
+              <span class="cmc-tab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M19 8V2"/><path d="M16 5h6"/></svg></span>
+              <span class="cmc-tab-txt"><b>Management</b><i>Lead and grow</i></span>
+            </button>
+            <button class="cmc-tab" data-tab="edu" role="tab" aria-selected="false">
+              <span class="cmc-tab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
+              <span class="cmc-tab-txt"><b>Higher Education</b><i>Advance your future</i></span>
+            </button>
+          </div>
+
+          <div class="cmc-panel is-active" data-panel="trades">
+            <div class="cmc-split">
+              <div class="cmc-diagram">
+                <div class="cmc-ladders">
+                  <div class="cmc-col">
+                    <p class="cmc-col-h">Apprentice Level</p>
+                    <div class="cmc-node"><b>Apprentice Laborer</b><span>$56K&ndash;$78K/yr</span><i>2-year paid apprenticeship</i></div>
+                    <div class="cmc-arw">&darr;</div>
+                    <div class="cmc-node"><b>Journeyman Laborer</b><span>$85K/yr</span></div>
+                    <div class="cmc-arw">&darr;</div>
+                    <div class="cmc-node"><b>Laborer Foreman</b><span>$98K/yr</span></div>
+                  </div>
+                  <div class="cmc-col">
+                    <p class="cmc-col-h">Journey Level</p>
+                    <div class="cmc-node"><b>Apprentice Cement Mason</b><span>$40K&ndash;$72K/yr</span><i>2-year paid apprenticeship</i></div>
+                    <div class="cmc-arw">&darr;</div>
+                    <div class="cmc-node"><b>Journeyman Cement Mason</b><span>$86K/yr</span></div>
+                    <div class="cmc-arw">&darr;</div>
+                    <div class="cmc-node"><b>Cement Mason Foreman</b><span>$94K/yr</span></div>
+                  </div>
+                  <div class="cmc-col">
+                    <p class="cmc-col-h">Foreman Level</p>
+                    <div class="cmc-node"><b>Apprentice Operator</b><span>$73K&ndash;$106K/yr</span><i>4-year paid apprenticeship</i></div>
+                    <div class="cmc-arw">&darr;</div>
+                    <div class="cmc-node"><b>Journeyman Operator</b><span>$116K/yr</span></div>
+                    <div class="cmc-arw">&darr;</div>
+                    <div class="cmc-node"><b>Operator Foreman</b><span>$122K/yr</span></div>
+                  </div>
+                </div>
+                <div class="cmc-more">
+                  <div class="cmc-more-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="cmc-more-txt"><b>Additional trade career opportunities available.</b><span>Explore more roles and paths as you grow with us.</span></div>
+                  <a class="cmc-more-link" href="/careers">View All Trade Opportunities &rarr;</a>
+                </div>
+                <a class="cmc-download" href="/files/raimore-career-pathways.pdf" download>
+                  <span class="cmc-download-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                  <span class="cmc-download-txt"><b>Download the Career Pathways guide</b><span>Full salary steps, apprenticeships &amp; growth paths (PDF)</span></span>
+                  <span class="cmc-download-cta">Download PDF &darr;</span>
+                </a>
+              </div>
+              <aside class="cmc-rail">
+                <h3>Skilled Trades</h3>
+                <p>Our tradespeople are the backbone of every project we build. Start your career with hands-on training, earn while you learn, and grow into leadership roles.</p>
+                <ul class="cmc-feats">
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 12h.01"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg></span><div><b>Earn While You Learn</b><p>Paid apprenticeships with structured training and mentorship.</p></div></li>
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-5"/></svg></span><div><b>Growth Opportunities</b><p>Clear career paths with increasing responsibilities and earning potential.</p></div></li>
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span><div><b>Build Your Future</b><p>Develop skills that last a lifetime and build communities you're proud of.</p></div></li>
+                </ul>
+                <a class="cmc-btn" href="/careers">Explore Trade Paths &rarr;</a>
+              </aside>
+            </div>
+          </div>
+
+          <div class="cmc-panel" data-panel="mgmt">
+            <div class="cmc-split">
+              <div class="cmc-diagram">
+                <div class="cmc-tier">
+                  <p class="cmc-col-h">Entry</p>
+                  <div class="cmc-row2">
+                    <div class="cmc-node"><b>Office Administrator</b><span>$50K&ndash;$65K/yr</span></div>
+                    <div class="cmc-node"><b>Office Engineer</b><span>$50K&ndash;$70K/yr</span></div>
+                  </div>
+                </div>
+                <div class="cmc-tier">
+                  <p class="cmc-col-h">Field &amp; Specialist</p>
+                  <div class="cmc-row3">
+                    <div class="cmc-node"><b>Field Engineer I</b><span>$55K&ndash;$70K/yr</span></div>
+                    <div class="cmc-node"><b>Field Engineer II</b><span>$70K&ndash;$88K/yr</span></div>
+                    <div class="cmc-node"><b>Field Engineer III</b><span>$85K&ndash;$99K/yr</span></div>
+                    <div class="cmc-node"><b>Quality Control Manager</b><span>$80K&ndash;$100K/yr</span></div>
+                    <div class="cmc-node"><b>Safety Manager</b><span>$80K&ndash;$100K/yr</span></div>
+                  </div>
+                </div>
+                <div class="cmc-tier">
+                  <p class="cmc-col-h">Leadership</p>
+                  <div class="cmc-row2x2">
+                    <div class="cmc-node"><b>Project Engineer</b><span>$95K+/yr</span></div>
+                    <div class="cmc-node"><b>Superintendent</b><span>$90K+/yr</span></div>
+                    <div class="cmc-node"><b>Project Manager</b><span>$105K+/yr</span></div>
+                    <div class="cmc-node"><b>Construction Manager</b><span>$105K+/yr</span></div>
+                  </div>
+                </div>
+                <div class="cmc-more">
+                  <div class="cmc-more-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m5 12 7-7 7 7"/></svg></div>
+                  <div class="cmc-more-txt"><b>Plus annual bonuses &amp; full medical insurance.</b><span>Move up as you grow, with support at every step.</span></div>
+                  <a class="cmc-more-link" href="/careers">View All Roles &rarr;</a>
+                </div>
+              </div>
+              <aside class="cmc-rail">
+                <h3>Management</h3>
+                <p>Grow into the people who plan, coordinate, and lead our projects. We promote from within and invest in the training that gets you there.</p>
+                <ul class="cmc-feats">
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-5"/></svg></span><div><b>Structured Advancement</b><p>Defined tiers from entry roles to senior leadership.</p></div></li>
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8"/><path d="M9 18h6"/></svg></span><div><b>Competitive Pay</b><p>Salaries that grow with responsibility, plus annual bonuses.</p></div></li>
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span><div><b>Full Benefits</b><p>Medical coverage and long-term security for you and your family.</p></div></li>
+                </ul>
+                <a class="cmc-btn" href="/careers">Explore Management Roles &rarr;</a>
+              </aside>
+            </div>
+          </div>
+
+          <div class="cmc-panel" data-panel="edu">
+            <div class="cmc-split">
+              <div class="cmc-diagram">
+                <div class="cmc-edu-cols">
+                  <div class="cmc-edu-col">
+                    <p class="cmc-edu-h">Community College</p>
+                    <p class="cmc-edu-sub">Associate degree programs</p>
+                    <ul class="cmc-edu-list">
+                      <li>Administrative</li><li>Tech Support</li><li>Drafting</li>
+                      <li>Office Manager</li><li>Safety</li><li>Quality Control &amp; Testing</li>
+                    </ul>
+                  </div>
+                  <div class="cmc-edu-col">
+                    <p class="cmc-edu-h">College / University</p>
+                    <p class="cmc-edu-sub">Bachelor degree programs</p>
+                    <ul class="cmc-edu-list">
+                      <li>Construction Management</li><li>Engineering (Civil, Industrial, Electrical)</li>
+                      <li>Architecture / Design</li><li>Accounting</li><li>Business / Sales / Marketing</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="cmc-more">
+                  <div class="cmc-more-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 2 6 2s6-1 6-2v-5"/></svg></div>
+                  <div class="cmc-more-txt"><b>Internships and transfer paths available.</b><span>Classroom learning connects directly to work on our projects.</span></div>
+                  <a class="cmc-more-link" href="/careers">Learn More &rarr;</a>
+                </div>
+              </div>
+              <aside class="cmc-rail">
+                <h3>Higher Education</h3>
+                <p>Prefer the classroom route? We support degrees and certifications that lead into estimating, engineering, safety, and office leadership roles.</p>
+                <ul class="cmc-feats">
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 2 6 2s6-1 6-2v-5"/></svg></span><div><b>Degree Pathways</b><p>Associate and bachelor programs that map to real roles here.</p></div></li>
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><div><b>Mentorship</b><p>Learn alongside experienced engineers and managers.</p></div></li>
+                  <li><span class="cmc-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="M12 18v4"/><path d="M4.9 19.1 7.8 16.2"/><path d="M2 12h4"/><path d="M4.9 4.9 7.8 7.8"/></svg></span><div><b>Internships</b><p>Hands-on experience on active jobsites while you study.</p></div></li>
+                </ul>
+                <a class="cmc-btn" href="/careers">Explore Education Paths &rarr;</a>
+              </aside>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cmx-people">
+      <div class="cmx-inner">
+        <span class="cmx-eyebrow line">The People Behind the Work</span>
+        <div class="cmx-people-grid">
+          <div class="cmx-person">
+            <div class="cmx-person-photo"><img src="images/gallery-1.jpg" alt="" loading="lazy" /></div>
+            <div class="cmx-person-q"><span class="qm">&#8220;</span><p>These streets are where I grew up.</p><span>Field Engineer</span></div>
+          </div>
+          <div class="cmx-person">
+            <div class="cmx-person-photo"><img src="images/gallery-4.jpg" alt="" loading="lazy" /></div>
+            <div class="cmx-person-q"><span class="qm">&#8220;</span><p>My kids walk on sidewalks we helped build.</p><span>Superintendent</span></div>
+          </div>
+          <div class="cmx-person">
+            <div class="cmx-person-photo"><img src="images/gallery-5.jpg" alt="" loading="lazy" /></div>
+            <div class="cmx-person-q"><span class="qm">&#8220;</span><p>I don't commute to the community. This is my community.</p><span>Project Manager</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cmx-journey">
+      <div class="cmx-inner">
+        <div class="cmx-journey-head"><span class="cmx-eyebrow line">Our Journey</span>
+          <h2 class="cmx-h2">Building Oregon, <em>year by year.</em></h2></div>
+        <div class="cmx-timeline">
+          <div class="cmx-mile"><p class="cmx-mile-year">2000</p><p class="cmx-mile-label">Founded in Portland</p></div>
+          <div class="cmx-mile"><p class="cmx-mile-year">2004</p><p class="cmx-mile-label">Expanded general contracting</p></div>
+          <div class="cmx-mile"><p class="cmx-mile-year">2012</p><p class="cmx-mile-label">Major public infrastructure projects</p></div>
+          <div class="cmx-mile"><p class="cmx-mile-year">2020</p><p class="cmx-mile-label">Growing workforce development</p></div>
+          <div class="cmx-mile"><p class="cmx-mile-year">Today</p><p class="cmx-mile-label">Building Oregon's future</p></div>
+        </div>
+        <div class="cmx-numbers"><span class="cmx-eyebrow line">Raimore by the Numbers</span>
+          <ul class="cmx-num-grid">
+            <li>Founded in 2000</li><li>Minority-owned construction company</li>
+
+            <li>80%+ minority workforce</li><li>Based in North / Northeast Portland</li>
+            <li>Building infrastructure across Oregon</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cmx-where">
+      <div class="cmx-inner">
+        <div class="cmx-where-top">
+          <h2>Across the year, our <em>people are out there.</em></h2>
+          <p>Career days. Classroom visits. Cultural events. Industry tables. The places young people are asking real questions, and the places the community gathers. We do not always announce it. We are usually just there.</p>
+        </div>
+        <div class="cmx-where-grid">
+          <div class="cmx-where-card">
+            <div class="cmx-where-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div><h4>Classrooms &amp; Career Days</h4><p>High schools across the region. Engineering classrooms. Multi-day, in-class engagements where the conversation is sustained.</p></div>
+          </div>
+          <div class="cmx-where-card">
+            <div class="cmx-where-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><h4>Community Events</h4><p>The cultural celebrations, neighborhood gatherings, and milestone moments that hold our community together.</p></div>
+          </div>
+          <div class="cmx-where-card">
+            <div class="cmx-where-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+            <div><h4>Industry Tables</h4><p>Construction expos, contractor associations, and the meetings where firms shape the future of the work together.</p></div>
+          </div>
+          <div class="cmx-where-card">
+            <div class="cmx-where-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a2 2 0 0 1 2-2h9l-2 4 2 4H6"/><path d="M4 22h6"/></svg></div>
+            <div><h4>Youth Pipelines</h4><p>Programs that connect students of color, students from underserved schools, and young women into engineering and the trades.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cmx-cta">
+      <div class="cmx-cta-inner">
+        <p>Community is not another department at Raimore. It is the foundation beneath every project we build.</p>
+        <a href="/contact">Build With Us &rarr;</a>
+      </div>
+    </section>
+
+  <script>
+  (function(){
+    var root=document.querySelector('.cmc'); if(!root) return;
+    var tabs=root.querySelectorAll('.cmc-tab'), panels=root.querySelectorAll('.cmc-panel');
+    tabs.forEach(function(t){ t.addEventListener('click',function(){
+      var key=t.getAttribute('data-tab');
+      tabs.forEach(function(x){ var on=x===t; x.classList.toggle('is-active',on); x.setAttribute('aria-selected',on?'true':'false'); });
+      panels.forEach(function(pn){ pn.classList.toggle('is-active', pn.getAttribute('data-panel')===key); });
+    }); });
+  })();
+  </script>
+  </main>
+
+  <footer class="footer">
+    <div class="ft-inner">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-word"><span class="ft-word-main">Raimore</span><span class="ft-word-sub">Construction</span></div>
+          <p class="ft-desc">A heavy civil contractor headquartered in Portland, Oregon, delivering infrastructure that builds better, stronger communities across the Pacific Northwest.</p>
+        </div>
+        <nav class="ft-col">
+          <h4>Company</h4>
+          <a href="/about-us">About Us</a>
+          <a href="/leadership">Leadership</a>
+          <a href="/diversity">Diversity</a>
+          <a href="/safety">Safety</a>
+          <a href="/community">Community</a>
+        </nav>
+        <nav class="ft-col">
+          <h4>Explore</h4>
+          <a href="/services">Services</a>
+          <a href="/project">Projects</a>
+          <a href="/careers">Careers</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <div class="ft-col ft-contact">
+          <h4>Get in Touch</h4>
+          <a href="mailto:info@raimore.com">info@raimore.com</a>
+          <a href="tel:5034933533">503.493.3533</a>
+          <p>2522 NE MLK Jr Blvd<br />Portland, OR 97212</p>
+          <p class="ft-lic">MBE &middot; CCB# 176521</p>
+        </div>
+      </div>
+
+      <div class="ft-divider"></div>
+
+      <div class="ft-bottom">
+        <p class="ft-copy">&copy; 2026 Raimore Construction. All rights reserved. &nbsp;&middot;&nbsp; Built by <a href="https://rehemasolutions.com/">Rehema Solutions</a></p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/raimore-construction-llc/" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></a>
+          <a href="https://x.com/" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=6"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"){t="light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safety, Raimore</title>
+  <meta name="description" content="Safety at Raimore Construction: every person home, every day. The standard we are accountable to on every project, planning, tailboards, stop-work authority, training, and continuous learning." />
+  <link rel="icon" href="images/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body>
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="/" class="brand" aria-label="Raimore Construction home">
+        <img src="images/logo-white.png" alt="Raimore Construction" class="brand-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li class="has-dropdown">
+          <a href="/about-us">Company <span class="caret">&#9662;</span></a>
+          <ul class="dropdown">
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/leadership">Leadership</a></li>
+            <li><a href="/diversity">Diversity</a></li>
+            <li><a href="/safety">Safety</a></li>
+            <li><a href="/community">Community</a></li>
+          </ul>
+        </li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><a href="/careers">Careers</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme" title="Toggle light / dark"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <div class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+<style>
+  :root {
+    --rs-bg:         #FFFFFF;
+    --rs-bg-alt:     #F7F6F3;
+    --rs-bg-deeper:  #FBFAF8;
+    --rs-ink:        #14171C;
+    --rs-ink-soft:   rgba(20,23,28,.72);
+    --rs-muted:      rgba(20,23,28,.52);
+    --rs-line:       rgba(20,23,28,.12);
+    --rs-line-soft:  rgba(20,23,28,.06);
+    --rs-accent:     #BA2334;
+    --rs-yellow:     #FFBA00;
+    --rs-font-display: "Funnel Display", "Inter", -apple-system, sans-serif;
+    --rs-font-body:    "Inter", -apple-system, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  .rs-root { font-family: var(--rs-font-body); color: var(--rs-ink); background: var(--rs-bg); width: 100%; max-width: 100%; overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; container-type: inline-size; container-name: rsafety; position: relative; }
+  @media (hover: hover) and (pointer: fine) {
+    .rs-root { cursor: none; }
+    .rs-root a, .rs-root button, .rs-root [role="button"] { cursor: none; }
+    .rs-cursor { position: fixed; top: 0; left: 0; width: 32px; height: 32px; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width .25s cubic-bezier(.4,0,.2,1), height .25s cubic-bezier(.4,0,.2,1), opacity .2s ease; will-change: transform; }
+    .rs-cursor::before, .rs-cursor::after { content: ""; position: absolute; background: var(--rs-accent); }
+    .rs-cursor::before { top: 50%; left: 0; width: 100%; height: 1px; transform: translateY(-50%); }
+    .rs-cursor::after { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+    .rs-cursor-ring { position: absolute; inset: 0; border: 1.5px solid var(--rs-accent); border-radius: 50%; transition: border-color .25s ease, transform .35s cubic-bezier(.25,1.6,.4,1); }
+    .rs-cursor-dot { position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: var(--rs-accent); border-radius: 50%; transform: translate(-50%, -50%); transition: width .25s ease, height .25s ease, background .25s ease; }
+    .rs-cursor.is-hover { width: 56px; height: 56px; }
+    .rs-cursor.is-hover .rs-cursor-ring { border-color: var(--rs-yellow); transform: scale(1); }
+    .rs-cursor.is-hover::before, .rs-cursor.is-hover::after { background: var(--rs-yellow); }
+    .rs-cursor.is-hover .rs-cursor-dot { width: 8px; height: 8px; background: var(--rs-yellow); }
+    .rs-cursor.is-on-red .rs-cursor-ring { border-color: var(--rs-yellow); }
+    .rs-cursor.is-on-red::before, .rs-cursor.is-on-red::after { background: var(--rs-yellow); }
+    .rs-cursor.is-on-red .rs-cursor-dot { background: var(--rs-yellow); }
+    .rs-cursor.is-on-red .rs-cursor-pulse { border-color: var(--rs-yellow); }
+    .rs-cursor-pulse { position: absolute; inset: -4px; border: 1px solid var(--rs-accent); border-radius: 50%; opacity: 0; animation: rs-cursor-pulse 2s ease-out infinite; }
+    @keyframes rs-cursor-pulse { 0% { transform: scale(0.6); opacity: 0.7; } 100% { transform: scale(1.6); opacity: 0; } }
+  }
+  @media (hover: none), (pointer: coarse) { .rs-cursor { display: none !important; } }
+  .rs-label { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rs-accent); margin: 0 0 20px 0; }
+  .rs-label::before { content: ""; width: 28px; height: 1.5px; background: var(--rs-accent); }
+  .rs-label.is-center { justify-content: center; }
+  .rs-label.is-center::after { content: ""; width: 28px; height: 1.5px; background: var(--rs-accent); }
+  .rs-label.is-yellow { color: var(--rs-accent); }
+  .rs-label.is-yellow::before, .rs-label.is-yellow::after { background: var(--rs-accent); }
+  .rs-hero { position: relative; background: var(--rs-bg-deeper); padding: clamp(100px, 14vw, 180px) clamp(24px, 5vw, 80px) clamp(80px, 10vw, 140px); overflow: hidden; border-bottom: 1px solid var(--rs-line); }
+  .rs-hero-art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .rs-art-flow { animation: rs-art-drift 16s ease-in-out infinite; }
+  @keyframes rs-art-drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .rs-hero::before { content: ""; display: none; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 30%, rgba(186,35,52,.07) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(186,35,52,.05) 0%, transparent 50%); pointer-events: none; }
+  .rs-hero::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(20,23,28,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(20,23,28,.04) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.6) 0%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.6) 0%, transparent 75%); }
+  .rs-hero-inner { position: relative; max-width: 1280px; margin: 0 auto; z-index: 1; }
+  .rs-hero-title { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(48px, 8vw, 112px); line-height: 0.98; letter-spacing: -0.035em; color: var(--rs-ink); margin: 0 0 28px 0; max-width: 16ch; }
+  .rs-hero-title em { font-style: normal; font-weight: 800; color: var(--rs-accent); }
+  .rs-hero-sub { font-size: clamp(16px, 1.4vw, 20px); line-height: 1.55; color: var(--rs-ink-soft); margin: 0; max-width: 60ch; }
+  .rs-hero-pulse { display: none; position: absolute; top: clamp(60px, 10vw, 120px); right: clamp(40px, 8vw, 120px); width: clamp(80px, 12vw, 160px); height: clamp(80px, 12vw, 160px); pointer-events: none; z-index: 0; opacity: 0.5; }
+  .rs-hero-pulse::before, .rs-hero-pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid var(--rs-accent); animation: rs-pulse-ring 3s ease-out infinite; }
+  .rs-hero-pulse::after { animation-delay: 1.5s; }
+  @keyframes rs-pulse-ring { 0% { transform: scale(0.4); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+  .rs-commit { background: var(--rs-bg); padding: clamp(80px, 11vw, 160px) clamp(24px, 5vw, 80px); border-bottom: 1px solid var(--rs-line); }
+  .rs-commit-inner { max-width: 880px; margin: 0 auto; }
+  .rs-commit p { font-family: var(--rs-font-display); font-weight: 500; font-size: clamp(20px, 1.9vw, 28px); line-height: 1.45; letter-spacing: -0.015em; color: var(--rs-ink); margin: 0 0 28px 0; }
+  .rs-commit p:last-child { margin-bottom: 0; }
+  .rs-commit p strong { color: var(--rs-accent); font-weight: 700; }
+  .rs-commit-divider { width: 64px; height: 2px; background: var(--rs-accent); margin: 0 0 40px 0; }
+  .rs-where { background: var(--rs-bg-deeper); padding: clamp(80px, 11vw, 140px) clamp(24px, 5vw, 80px); border-bottom: 1px solid var(--rs-line); position: relative; overflow: hidden; }
+  .rs-where::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(186,35,52,.08) 0%, transparent 55%); pointer-events: none; }
+  .rs-where-inner { position: relative; max-width: 1080px; margin: 0 auto; z-index: 1; }
+  .rs-where-title { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); line-height: 1.1; letter-spacing: -0.025em; color: var(--rs-ink); margin: 0 0 40px 0; max-width: 22ch; }
+  .rs-where-title em { font-style: normal; font-weight: 800; color: var(--rs-accent); }
+  .rs-where-body { max-width: 64ch; }
+  .rs-where-body p { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.7; color: var(--rs-ink-soft); margin: 0 0 22px 0; }
+  .rs-where-body p:last-child { margin-bottom: 0; }
+  .rs-where-body p strong { color: var(--rs-ink); font-weight: 600; }
+  .rs-standard { background: var(--rs-bg); padding: clamp(80px, 11vw, 140px) clamp(24px, 5vw, 80px); }
+  .rs-standard-inner { max-width: 1280px; margin: 0 auto; }
+  .rs-standard-header { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 80px); align-items: end; margin-bottom: clamp(48px, 6vw, 80px); }
+  .rs-standard-title { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(34px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.025em; color: var(--rs-ink); margin: 0; }
+  .rs-standard-title em { font-style: normal; font-weight: 800; color: var(--rs-accent); }
+  .rs-standard-intro { font-size: clamp(15px, 1.15vw, 17px); line-height: 1.65; color: var(--rs-ink-soft); margin: 0; max-width: 56ch; padding-bottom: 8px; }
+  .sf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rs-line); border-top: 1px solid var(--rs-line); border-bottom: 1px solid var(--rs-line); }
+  .sf-card { background: var(--rs-bg); padding: clamp(32px, 3vw, 44px) clamp(28px, 2.5vw, 36px); display: flex; flex-direction: column; gap: 18px; position: relative; transition: background .3s ease; }
+  .sf-card:hover { background: var(--rs-bg-alt); }
+  .sf-card::before { content: ""; position: absolute; top: 0; left: 0; width: 36px; height: 3px; background: var(--rs-accent); transform-origin: left; transform: scaleX(0.3); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+  .sf-card:hover::before { transform: scaleX(1); }
+  .sf-card-num { font-family: var(--rs-font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: var(--rs-accent); margin: 0; }
+  .rs-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--rs-yellow); display: flex; align-items: center; justify-content: center; color: #14171C; transition: background .3s ease, transform .4s cubic-bezier(.25,1.6,.4,1); }
+  .sf-card:hover .rs-icon { background: #E6A700; transform: scale(1.06); }
+  .rs-icon svg { width: 30px; height: 30px; overflow: visible; }
+  .rs-icon-plan .clip-base { transform-origin: center; animation: rs-pulse 3s ease-in-out infinite; }
+  .rs-icon-plan .clip-line { stroke-dasharray: 14; stroke-dashoffset: 14; animation: rs-line-draw 3s ease-in-out infinite; }
+  .rs-icon-plan .clip-line:nth-of-type(2) { animation-delay: 0.3s; }
+  .rs-icon-plan .clip-line:nth-of-type(3) { animation-delay: 0.6s; }
+  @keyframes rs-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  @keyframes rs-line-draw { 0%, 25% { stroke-dashoffset: 14; } 50%, 75% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -14; } }
+  .rs-icon-tailboard .figure { transform-origin: center bottom; animation: rs-bounce 3s ease-in-out infinite; }
+  .rs-icon-tailboard .figure:nth-of-type(1) { animation-delay: 0s; }
+  .rs-icon-tailboard .figure:nth-of-type(2) { animation-delay: 0.5s; }
+  .rs-icon-tailboard .figure:nth-of-type(3) { animation-delay: 1s; }
+  @keyframes rs-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+  .rs-icon-supervisor .walker-l, .rs-icon-supervisor .walker-r { transform-origin: center bottom; animation: rs-step 2s ease-in-out infinite; }
+  .rs-icon-supervisor .walker-r { animation-delay: 1s; }
+  @keyframes rs-step { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-1.5px) rotate(2deg); } }
+  .rs-icon-stop .speaker { transform-origin: center; animation: rs-pulse 2.5s ease-in-out infinite; }
+  .rs-icon-stop .ripple-1, .rs-icon-stop .ripple-2 { transform-origin: 8px 12px; animation: rs-speak-ripple 2s ease-out infinite; opacity: 0; }
+  .rs-icon-stop .ripple-2 { animation-delay: 0.6s; }
+  @keyframes rs-speak-ripple { 0% { transform: scale(0.4); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+  .rs-icon-trained .hardhat { transform-origin: 16px 18px; animation: rs-tilt 4s ease-in-out infinite; }
+  @keyframes rs-tilt { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  .rs-icon-learn .arrow-loop { transform-origin: center; animation: rs-spin 4s linear infinite; }
+  .rs-icon-learn .center-spark { transform-origin: center; animation: rs-pulse 1.6s ease-in-out infinite; }
+  @keyframes rs-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .sf-card h3 { font-family: var(--rs-font-display); font-weight: 700; font-size: clamp(24px, 2vw, 32px); line-height: 1.15; letter-spacing: -0.02em; color: var(--rs-ink); margin: 0; }
+  .sf-card-sub { font-family: var(--rs-font-display); font-weight: 500; font-style: italic; font-size: 14px; line-height: 1.4; color: var(--rs-muted); margin: -10px 0 0 0; letter-spacing: 0; }
+  .sf-card p { font-size: 14.5px; line-height: 1.6; color: var(--rs-ink-soft); margin: 0; max-width: 40ch; }
+  .rs-qc { background: var(--rs-bg); padding: clamp(80px, 11vw, 160px) clamp(24px, 5vw, 80px); border-top: 1px solid var(--rs-line); border-bottom: 1px solid var(--rs-line); }
+  .rs-qc-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+  .rs-qc-head { position: sticky; top: 90px; }
+  .rs-qc-title { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.03em; color: var(--rs-ink); margin: 0; }
+  .rs-qc-title .accent { color: var(--rs-accent); }
+  .rs-qc-body { min-width: 0; }
+  .rs-qc-body p { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.7; color: var(--rs-ink-soft); margin: 0 0 22px 0; }
+  .rs-qc-body p:last-child { margin-bottom: 0; }
+  .rs-qc-body p strong { color: var(--rs-ink); font-weight: 700; }
+  .rs-pullquote { margin: 40px 0 0 0; padding: 28px 32px; background: rgba(186,35,52,.08); border-left: 4px solid var(--rs-accent); border-radius: 0 12px 12px 0; }
+  .rs-pullquote p { font-family: var(--rs-font-display); font-style: normal; font-weight: 700; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.35; letter-spacing: -0.02em; color: var(--rs-accent); margin: 0; }
+  .rs-partner { background: var(--rs-bg-deeper); padding: clamp(80px, 11vw, 140px) clamp(24px, 5vw, 80px); position: relative; overflow: hidden; }
+  .rs-partner::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 20%, rgba(186,35,52,.07) 0%, transparent 50%), radial-gradient(ellipse at 20% 90%, rgba(186,35,52,.05) 0%, transparent 50%); pointer-events: none; }
+  .rs-partner-inner { position: relative; max-width: 1080px; margin: 0 auto; z-index: 1; }
+  .rs-partner-title { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(34px, 4.5vw, 56px); line-height: 1.1; letter-spacing: -0.025em; color: var(--rs-ink); margin: 0 0 32px 0; max-width: 22ch; }
+  .rs-partner-title em { font-style: normal; font-weight: 800; color: var(--rs-accent); }
+  .rs-partner-body p { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.7; color: var(--rs-ink-soft); margin: 0 0 22px 0; max-width: 64ch; }
+  .rs-partner-body p:last-child { margin-bottom: 0; }
+  .rs-partner-body p strong { color: var(--rs-ink); font-weight: 600; }
+  .rs-echo { background: var(--rs-bg); padding: clamp(80px, 11vw, 140px) clamp(24px, 5vw, 80px); text-align: center; border-top: 1px solid var(--rs-line); }
+  .rs-echo-inner { max-width: 880px; margin: 0 auto; position: relative; }
+  .rs-echo-mark { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(80px, 10vw, 140px); line-height: 0.6; color: var(--rs-accent); opacity: 0.25; margin: 0 0 20px 0; user-select: none; }
+  .rs-echo-leadin { font-size: clamp(13px, 1vw, 15px); line-height: 1.55; color: var(--rs-muted); margin: 0 auto 36px; max-width: 50ch; font-style: italic; }
+  .rs-echo-quote { font-family: var(--rs-font-display); font-weight: 700; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.3; letter-spacing: -0.02em; color: var(--rs-ink); margin: 0 0 28px 0; }
+  .rs-echo-attr { display: inline-flex; align-items: center; gap: 14px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rs-accent); margin: 0 0 40px 0; }
+  .rs-echo-attr::before, .rs-echo-attr::after { content: ""; width: 24px; height: 1.5px; background: var(--rs-accent); }
+  .rs-echo-close { font-family: var(--rs-font-display); font-weight: 500; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.55; color: var(--rs-ink-soft); margin: 0 auto; max-width: 56ch; }
+  .rs-cta { background: var(--rs-accent); color: #FFFFFF; padding: clamp(96px, 13vw, 160px) clamp(24px, 5vw, 80px); text-align: center; position: relative; overflow: hidden; }
+  .rs-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,255,255,.08) 0%, transparent 60%); pointer-events: none; }
+  .rs-cta-inner { position: relative; max-width: 880px; margin: 0 auto; z-index: 1; }
+  .rs-cta-title { font-family: var(--rs-font-display); font-weight: 800; font-size: clamp(34px, 4.8vw, 60px); line-height: 1.05; letter-spacing: -0.025em; color: #FFFFFF; margin: 0 0 20px 0; }
+  .rs-cta-sub { font-size: clamp(16px, 1.3vw, 19px); line-height: 1.55; color: rgba(255,255,255,.88); margin: 0 auto 40px; max-width: 56ch; }
+  .rs-cta-btns { display: inline-flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .rs-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-family: var(--rs-font-display); font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 6px; text-decoration: none; cursor: pointer; transition: all .3s cubic-bezier(.2,.7,.2,1); border: 1.5px solid transparent; }
+  .rs-btn-primary { background: #FFFFFF; color: var(--rs-accent); }
+  .rs-btn-primary:hover { background: #14171C; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(0,0,0,.4); }
+  .rs-btn-ghost { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,.4); }
+  .rs-btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #FFFFFF; transform: translateY(-2px); }
+  .rs-btn .arrow { transition: transform .3s ease; }
+  .rs-btn:hover .arrow { transform: translateX(3px); }
+  @keyframes rs-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .rs-reveal { opacity: 0; animation: rs-rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .rs-reveal.d1 { animation-delay: .1s; } .rs-reveal.d2 { animation-delay: .25s; } .rs-reveal.d3 { animation-delay: .4s; }
+  .rs-inview { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .rs-inview.is-visible { opacity: 1; transform: translateY(0); }
+  .rs-inview:nth-child(1) { transition-delay: .05s; } .rs-inview:nth-child(2) { transition-delay: .12s; } .rs-inview:nth-child(3) { transition-delay: .19s; } .rs-inview:nth-child(4) { transition-delay: .26s; } .rs-inview:nth-child(5) { transition-delay: .33s; } .rs-inview:nth-child(6) { transition-delay: .40s; }
+  @container rsafety (max-width: 960px) { .rs-standard-header { grid-template-columns: 1fr; gap: 20px; align-items: start; } .rs-standard-intro { padding-bottom: 0; } .sf-cards { grid-template-columns: repeat(2, 1fr); } .rs-qc-inner { grid-template-columns: 1fr; gap: 24px; } .rs-qc-head { position: static; } }
+  @container rsafety (max-width: 640px) { .rs-hero { padding: 80px 20px 64px; } .rs-hero-title { font-size: clamp(40px, 11cqi, 56px); } .rs-hero-pulse { display: none; } .rs-commit { padding: 64px 20px; } .rs-commit p { font-size: 18px; } .rs-standard { padding: 64px 20px; } .rs-standard-title { font-size: clamp(28px, 8cqi, 40px); } .sf-cards { grid-template-columns: 1fr; } .sf-card { padding: 28px 24px; } .rs-qc { padding: 64px 20px; } .rs-qc-title { font-size: clamp(28px, 8cqi, 40px); } .rs-pullquote { padding: 22px 24px; } .rs-partner { padding: 64px 20px; } .rs-partner-title { font-size: clamp(28px, 8cqi, 40px); } .rs-echo { padding: 64px 20px; } .rs-echo-quote { font-size: 22px; } .rs-cta { padding: 80px 20px; } .rs-cta-title { font-size: clamp(28px, 9cqi, 40px); } .rs-cta-btns { flex-direction: column; width: 100%; } .rs-btn { width: 100%; justify-content: center; } }
+  @media (prefers-reduced-motion: reduce) { .rs-art-flow { animation: none !important; } .rs-reveal, .rs-inview { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; } .rs-hero-pulse::before, .rs-hero-pulse::after, .rs-icon svg *, .rs-icon-plan .clip-base, .rs-icon-plan .clip-line, .rs-icon-tailboard .figure, .rs-icon-supervisor .walker-l, .rs-icon-supervisor .walker-r, .rs-icon-stop .speaker, .rs-icon-stop .ripple-1, .rs-icon-stop .ripple-2, .rs-icon-trained .hardhat, .rs-icon-learn .arrow-loop, .rs-icon-learn .center-spark { animation: none !important; } .rs-icon-plan .clip-line { stroke-dashoffset: 0 !important; } }
+  @media (hover: none) { .sf-card:hover { background: var(--rs-bg); } .sf-card::before { transform: scaleX(1); } .sf-card:hover .rs-icon { transform: none; } }
+</style>
+
+<div class="rs-root">
+  <div class="rs-cursor" id="rsCursor" aria-hidden="true"><span class="rs-cursor-ring"></span><span class="rs-cursor-dot"></span><span class="rs-cursor-pulse"></span></div>
+
+  <section class="rs-hero">
+    <style>
+      .rs-hero-grid { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(32px,5vw,68px); align-items: center; }
+      .rs-hero-media { position: relative; display: grid; grid-template-columns: 2fr 1fr; gap: 10px; height: clamp(360px, 40vw, 512px); clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%); }
+      .rs-hero-media::before { content: ""; position: absolute; left: -10px; top: 8%; width: 6px; height: 46%; background: var(--rs-accent); transform: skewX(-9deg); z-index: 2; }
+      .rs-hm-main { position: relative; overflow: hidden; }
+      .rs-hm-col { display: grid; grid-template-rows: repeat(3, 1fr); gap: 10px; }
+      .rs-hm-cell { position: relative; overflow: hidden; }
+      .rs-hm-main img, .rs-hm-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .rs-hm-cell::after { content: ""; position: absolute; inset: 0; mix-blend-mode: multiply; pointer-events: none; }
+      .rs-tint-gold::after { background: linear-gradient(160deg, rgba(255,186,0,.55), rgba(224,85,47,.42)); }
+      .rs-tint-mono img { filter: grayscale(1) contrast(1.04); }
+      .rs-tint-mono::after { background: rgba(20,23,28,.28); }
+      .rs-tint-red::after { background: linear-gradient(160deg, rgba(186,35,52,.58), rgba(120,18,30,.52)); }
+      @media (max-width: 860px) {
+        .rs-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+        .rs-hero-media { height: 300px; clip-path: none; }
+        .rs-hero-media::before { display: none; }
+      }
+    </style>
+    <div class="rs-hero-grid">
+      <div class="rs-hero-inner">
+        <p class="rs-label is-yellow rs-reveal d1">Safety</p>
+        <h1 class="rs-hero-title rs-reveal d2">Every person home, <em>every day.</em></h1>
+        <p class="rs-hero-sub rs-reveal d3">This page is for everyone who walks our jobsites. It is the standard we are accountable to, on every project.</p>
+      </div>
+      <div class="rs-hero-media rs-reveal d3" aria-hidden="true">
+        <div class="rs-hm-main"><img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/safety-hero.webp" alt="" loading="eager" /></div>
+        <div class="rs-hm-col">
+          <div class="rs-hm-cell rs-tint-gold"><img src="images/project-2.jpg" alt="" loading="lazy" /></div>
+          <div class="rs-hm-cell rs-tint-mono"><img src="images/gallery-3.jpg" alt="" loading="lazy" /></div>
+          <div class="rs-hm-cell rs-tint-red"><img src="images/gallery-5.jpg" alt="" loading="lazy" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .rs-pillars-band { background: var(--rs-bg); padding: 0 clamp(24px,5vw,80px) clamp(60px,8vw,96px); }
+    .rs-pillars-wrap { max-width: 1280px; margin: 0 auto; }
+    .rs-pillars { display: grid; gap: 0; }
+    .rs-pillars.cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .rs-pillars.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .rs-pillar { padding: 4px 24px; border-left: 1px solid var(--rs-line); }
+    .rs-pillar:first-child { border-left: none; padding-left: 0; }
+    .rs-pillar-ic { color: var(--rs-accent); margin-bottom: 18px; }
+    .rs-pillar-ic svg { width: 42px; height: 42px; display: block; }
+    .rs-pillar-tick { width: 26px; height: 3px; background: var(--rs-yellow); border-radius: 2px; margin-bottom: 14px; }
+    .rs-pillar h3 { font-family: var(--rs-font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-accent); margin: 0 0 9px; }
+    .rs-pillar p { font-size: 13.5px; line-height: 1.55; color: var(--rs-ink-soft); margin: 0; }
+    .rs-where .rs-pillars, .rs-qc .rs-pillars { margin-top: clamp(40px,5vw,60px); }
+    @media (max-width: 880px) {
+      .rs-pillars.cols-5, .rs-pillars.cols-4 { grid-template-columns: repeat(2, 1fr); gap: 36px 28px; }
+      .rs-pillar, .rs-pillar:first-child { border-left: none; padding: 0; }
+    }
+    @media (max-width: 520px) {
+      .rs-pillars.cols-5, .rs-pillars.cols-4 { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+  <section class="rs-pillars-band">
+    <div class="rs-pillars-wrap">
+      <div class="rs-pillars cols-5">
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div><div class="rs-pillar-tick"></div><h3>For Ourselves.</h3><p>We protect our health, our future, and our families.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="rs-pillar-tick"></div><h3>For Each Other.</h3><p>We look out, speak up, and work as a team.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M3 21h6"/><path d="M4 4h16"/><path d="M6 4l5 4"/><path d="M16 4v6"/><path d="M14.5 10h3l-1.5 2z"/></svg></div><div class="rs-pillar-tick"></div><h3>For Our Work.</h3><p>We take pride in doing things the right way.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h20"/><path d="M5 18V7"/><path d="M19 18V7"/><path d="M5 8c4 5 10 5 14 0"/><path d="M9 18v-4"/><path d="M12 18v-5"/><path d="M15 18v-4"/></svg></div><div class="rs-pillar-tick"></div><h3>For Our Community.</h3><p>We respect the places we work and the people around us.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16V9h4"/><path d="M2 16h18"/><path d="M8 8l10 1-1 6H8z"/><path d="M18 12l3 2"/><circle cx="6" cy="18" r="1.7"/><circle cx="16" cy="18" r="1.7"/></svg></div><div class="rs-pillar-tick"></div><h3>For the Future.</h3><p>We build a safer tomorrow through what we do today.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rs-commit">
+    <div class="rs-commit-inner">
+      <div class="rs-commit-divider rs-inview"></div>
+      <div class="rs-inview"><p>Many of us have learned to hear the word <em>safety</em> as paperwork. A box to check. Something done to us, not for us. We understand why.</p></div>
+      <div class="rs-inview"><p>There is one life. There are no copies of it. <strong>Everything else on this page begins from that.</strong></p></div>
+    </div>
+  </section>
+
+  <style>
+    .rs-where-top { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(32px,5vw,64px); align-items: center; }
+    .rs-where-text .rs-where-title { margin-bottom: clamp(24px,3vw,32px); }
+    .rs-where-media { position: relative; display: grid; grid-template-rows: 2.1fr 1fr; gap: 10px; height: clamp(320px,36vw,452px); clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); }
+    .rs-where-media .cell { position: relative; overflow: hidden; }
+    .rs-where-media img { width:100%; height:100%; object-fit: cover; display:block; }
+    .rs-where-media .red::after { content:""; position:absolute; inset:0; background: linear-gradient(160deg, rgba(186,35,52,.55), rgba(120,18,30,.5)); mix-blend-mode: multiply; }
+    .rs-qc-strip { max-width: 1280px; margin: clamp(48px,6vw,76px) auto 0; display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; height: clamp(130px,14vw,184px); }
+    .rs-qc-strip .cell { position: relative; overflow: hidden; clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%); }
+    .rs-qc-strip img { width:100%; height:100%; object-fit: cover; display:block; }
+    @media (max-width: 860px) { .rs-where-top { grid-template-columns: 1fr; gap: 32px; } .rs-where-media { height: 280px; clip-path: none; } }
+    @media (max-width: 680px) { .rs-qc-strip { grid-template-columns: repeat(2,1fr); height: auto; } .rs-qc-strip .cell { height: 130px; clip-path: polygon(6% 0,100% 0,94% 100%,0 100%); } }
+  </style>
+  <section class="rs-where">
+    <div class="rs-where-inner">
+      <div class="rs-where-top">
+        <div class="rs-where-text">
+      <p class="rs-label rs-inview">Where Safety Starts</p>
+      <h2 class="rs-where-title rs-inview">It starts long before <em>anyone reads a plan.</em></h2>
+      <div class="rs-where-body">
+        <p class="rs-inview">Anyone who feels respected, heard, and seen looks out for the people next to them. Anyone who feels invisible does not. <strong>No checklist closes that gap.</strong></p>
+        <p class="rs-inview">The procedure matters. So does what comes before it: the conversation at the gate, the question that gets welcomed, the person who walked in carrying something hard. The first is what the law asks of us. The second is what makes the first one hold.</p>
+      </div>
+        </div>
+        <div class="rs-where-media rs-inview" aria-hidden="true">
+          <div class="cell"><img src="images/project-3.jpg" alt="" loading="lazy" /></div>
+          <div class="cell red"><img src="images/gallery-1.jpg" alt="" loading="lazy" /></div>
+        </div>
+      </div>
+      <div class="rs-pillars cols-5">
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="rs-pillar-tick"></div><h3>Respect</h3><p>People look out for people.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div><div class="rs-pillar-tick"></div><h3>Communication</h3><p>Conversations close gaps.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="rs-pillar-tick"></div><h3>Accountability</h3><p>We do what we say we will do.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div><div class="rs-pillar-tick"></div><h3>Preparation</h3><p>The work starts before the work.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg></div><div class="rs-pillar-tick"></div><h3>Trust</h3><p>Trust is built in the small things.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rs-standard">
+    <div class="rs-standard-inner">
+      <header class="rs-standard-header">
+        <div>
+          <p class="rs-label rs-inview">How We Work</p>
+          <h2 class="rs-standard-title rs-inview">Six ways we look after <em>each other</em> on the job.</h2>
+        </div>
+        <p class="rs-standard-intro rs-inview">They run on every project, regardless of scope or trade.</p>
+      </header>
+      <div class="sf-cards">
+        <div class="sf-card rs-inview">
+          <p class="sf-card-num">01</p>
+          <div class="rs-icon rs-icon-plan" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="clip-base"><rect x="5" y="4" width="14" height="17" rx="2" stroke="currentColor" fill="none"/><rect x="9" y="2" width="6" height="3" rx="1" fill="currentColor"/></g><line class="clip-line" x1="8" y1="10" x2="16" y2="10"/><line class="clip-line" x1="8" y1="14" x2="16" y2="14"/><line class="clip-line" x1="8" y1="18" x2="13" y2="18"/></svg></div>
+          <h3>Ready</h3>
+          <p class="sf-card-sub">How we prepare the ground for the people on it.</p>
+          <p>Safety plans, hazard analyses, and site-specific controls are written before mobilization, by the people who will carry out the work.</p>
+        </div>
+        <div class="sf-card rs-inview">
+          <p class="sf-card-num">02</p>
+          <div class="rs-icon rs-icon-tailboard" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="figure"><circle cx="5" cy="9" r="2" fill="currentColor"/><path d="M 2 18 v -2 a 3 3 0 0 1 3 -3 a 3 3 0 0 1 3 3 v 2" fill="currentColor" opacity="0.85"/></g><g class="figure"><circle cx="12" cy="7" r="2.2" fill="currentColor"/><path d="M 9 18 v -2.5 a 3 3 0 0 1 3 -3 a 3 3 0 0 1 3 3 v 2.5" fill="currentColor"/></g><g class="figure"><circle cx="19" cy="9" r="2" fill="currentColor"/><path d="M 16 18 v -2 a 3 3 0 0 1 3 -3 a 3 3 0 0 1 3 3 v 2" fill="currentColor" opacity="0.85"/></g></svg></div>
+          <h3>Gather</h3>
+          <p class="sf-card-sub">How we start each day together, so no one starts it alone.</p>
+          <p>Every morning, all of us. The day's scope, the hazards, the controls, what has changed. And how each of us walked in, because that shapes the day as well.</p>
+        </div>
+        <div class="sf-card rs-inview">
+          <p class="sf-card-num">03</p>
+          <div class="rs-icon rs-icon-supervisor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="walker-l"><circle cx="8" cy="5" r="2" fill="currentColor"/><line x1="8" y1="7.5" x2="8" y2="14"/><line x1="8" y1="14" x2="6" y2="20"/><line x1="8" y1="14" x2="10" y2="20"/><line x1="8" y1="10" x2="6" y2="13"/><line x1="8" y1="10" x2="10" y2="12"/></g><g class="walker-r"><circle cx="16" cy="5" r="2" fill="currentColor"/><line x1="16" y1="7.5" x2="16" y2="14"/><line x1="16" y1="14" x2="14" y2="20"/><line x1="16" y1="14" x2="18" y2="20"/><line x1="16" y1="10" x2="14" y2="12"/><line x1="16" y1="10" x2="18" y2="13"/></g></svg></div>
+          <h3>Walk</h3>
+          <p class="sf-card-sub">How we walk with one another, side by side.</p>
+          <p>On every shift, those leading the work walk it alongside everyone else. We watch the work, and we watch each other.</p>
+        </div>
+        <div class="sf-card rs-inview">
+          <p class="sf-card-num">04</p>
+          <div class="rs-icon rs-icon-stop" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="speaker"><path d="M 3 9 L 9 9 L 15 5 L 15 19 L 9 15 L 3 15 Z" fill="currentColor"/></g><path class="ripple-1" d="M 17 9 Q 19 12, 17 15" stroke="currentColor" stroke-width="1.6"/><path class="ripple-2" d="M 19 7 Q 22 12, 19 17" stroke="currentColor" stroke-width="1.6"/></svg></div>
+          <h3>Speak</h3>
+          <p class="sf-card-sub">How we make room for every voice, in every role.</p>
+          <p>Anyone, in any role, can stop a task that does not feel right. The voice that saves a life is rarely the loudest. It is the one that already felt welcome.</p>
+        </div>
+        <div class="sf-card rs-inview">
+          <p class="sf-card-num">05</p>
+          <div class="rs-icon rs-icon-trained" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="hardhat"><path d="M 6 20 C 6 14, 10 9, 16 9 C 22 9, 26 14, 26 20" fill="currentColor"/><rect x="3" y="20" width="26" height="3" rx="1.5" fill="currentColor"/><line x1="16" y1="9" x2="16" y2="20" stroke="#0F1216" stroke-width="1.5" opacity="0.6"/><line x1="11" y1="11" x2="12.5" y2="20" stroke="#0F1216" stroke-width="1.2" opacity="0.5"/><line x1="21" y1="11" x2="19.5" y2="20" stroke="#0F1216" stroke-width="1.2" opacity="0.5"/></g></svg></div>
+          <h3>Equip</h3>
+          <p class="sf-card-sub">How we go in equipped for the work ahead.</p>
+          <p>We prepare to OSHA, to the owner's standard, and to what every partner brings. Whichever is highest is what we all hold to. Real preparation for real risk.</p>
+        </div>
+        <div class="sf-card rs-inview">
+          <p class="sf-card-num">06</p>
+          <div class="rs-icon rs-icon-learn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="arrow-loop"><path d="M 21 12 A 9 9 0 1 1 12 3" stroke="currentColor"/><polyline points="14,2 12,3 13,5"/></g><circle class="center-spark" cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
+          <h3>Learn</h3>
+          <p class="sf-card-sub">How we carry forward every lesson, so the next of us never pays for it.</p>
+          <p>Every incident, near-miss, and good catch is reported, reviewed, and shared. Not for blame. So whoever is next gets the lesson without paying for it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rs-qc">
+    <div class="rs-qc-inner">
+      <div class="rs-qc-head rs-inview">
+        <p class="rs-label">Quality Control</p>
+        <h2 class="rs-qc-title">We are human.<br/><span class="accent">The plan is the safety net.</span></h2>
+      </div>
+      <div class="rs-qc-body rs-inview">
+        <p>Even with all of that, we all make mistakes. A long shift. A hard week. Something heavy carried in from outside the gate. <strong>Pretending otherwise is how someone gets hurt.</strong></p>
+        <p>QC is the safety net. It is where a question gets asked before an email is sent. Where a discrepancy is caught before it becomes a non-conformance. Where a misunderstanding is cleared on paper instead of paid for in someone's life.</p>
+        <div class="rs-pullquote"><p>"A plan caught on paper is a person not caught in the field."</p></div>
+      </div>
+      <div class="rs-pillars cols-4" style="grid-column:1/-1;">
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div><div class="rs-pillar-tick"></div><h3>Plan</h3><p>Every job starts with a plan.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div><div class="rs-pillar-tick"></div><h3>Check</h3><p>We ask the hard questions.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="rs-pillar-tick"></div><h3>Verify</h3><p>We catch issues before they grow.</p></div>
+        <div class="rs-pillar rs-inview"><div class="rs-pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="rs-pillar-tick"></div><h3>Protect</h3><p>We protect our people and our work.</p></div>
+      </div>
+    </div>
+    <div class="rs-qc-strip rs-inview" aria-hidden="true">
+      <div class="cell"><img src="images/gallery-2.jpg" alt="" loading="lazy" /></div>
+      <div class="cell"><img src="images/project-4.jpg" alt="" loading="lazy" /></div>
+      <div class="cell"><img src="images/project-1.jpg" alt="" loading="lazy" /></div>
+      <div class="cell"><img src="images/gallery-4.jpg" alt="" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section class="rs-partner">
+    <div class="rs-partner-inner">
+      <p class="rs-label is-yellow rs-inview">Standards &amp; Partnership</p>
+      <h2 class="rs-partner-title rs-inview">We meet the standard the project asks of us, and the <em>people inside it.</em></h2>
+      <div class="rs-partner-body rs-inview">
+        <p>On every project, the highest standard among us governs. <strong>The law. The owner. The trade. What each partner brings.</strong></p>
+        <p>We hold to that standard together, and we are accountable to it through the life of the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rs-echo">
+    <div class="rs-echo-inner">
+      <p class="rs-echo-leadin rs-inview">All of this returns to the same place we started, and to the conviction that runs through everything we do.</p>
+      <p class="rs-echo-mark rs-inview" aria-hidden="true">"</p>
+      <p class="rs-echo-quote rs-inview">We measure greatness not by what we construct, but by what we leave behind in the lives, the character, and the legacy we build together.</p>
+      <p class="rs-echo-attr rs-inview">From Our Mission</p>
+      <p class="rs-echo-close rs-inview">Every one of us, on every crew we are part of, matters on our own, to someone who is waiting for us at the end of the shift. Everything else is built on that.</p>
+    </div>
+  </section>
+
+  <section class="rs-cta">
+    <div class="rs-cta-inner">
+      <h2 class="rs-cta-title rs-inview">Build alongside people who care<br/>about the people building it.</h2>
+      <div class="rs-cta-btns rs-inview">
+        <a href="/contact" target="_top" class="rs-btn rs-btn-primary">Get in Touch <span class="arrow">&#8594;</span></a>
+        <a href="/project" target="_top" class="rs-btn rs-btn-ghost">See Our Projects <span class="arrow">&#8594;</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function() {
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.rs-inview').forEach(el => io.observe(el));
+  } else { document.querySelectorAll('.rs-inview').forEach(el => el.classList.add('is-visible')); }
+  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!isFinePointer) return;
+  const cursor = document.getElementById('rsCursor');
+  if (!cursor) return;
+  let isVisible = false;
+  function showCursor() { if (!isVisible) { cursor.style.opacity = '1'; isVisible = true; } }
+  function hideCursor() { cursor.style.opacity = '0'; isVisible = false; }
+  cursor.style.opacity = '0';
+  const root = document.querySelector('.rs-root');
+  const redSection = document.querySelector('.rs-cta');
+  function onMove(e) {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+    showCursor();
+    if (redSection) { const rect = redSection.getBoundingClientRect(); const overRed = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom; cursor.classList.toggle('is-on-red', overRed); }
+  }
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseleave', hideCursor);
+  document.addEventListener('mouseenter', showCursor);
+  const hoverables = root.querySelectorAll('a, button, [role="button"], .sf-card');
+  hoverables.forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('is-hover')); el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover')); });
+})();
+</script>
+  <footer class="footer">
+    <div class="ft-inner">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-word"><span class="ft-word-main">Raimore</span><span class="ft-word-sub">Construction</span></div>
+          <p class="ft-desc">A heavy civil contractor headquartered in Portland, Oregon, delivering infrastructure that builds better, stronger communities across the Pacific Northwest.</p>
+        </div>
+        <nav class="ft-col">
+          <h4>Company</h4>
+          <a href="/about-us">About Us</a>
+          <a href="/leadership">Leadership</a>
+          <a href="/diversity">Diversity</a>
+          <a href="/safety">Safety</a>
+          <a href="/community">Community</a>
+        </nav>
+        <nav class="ft-col">
+          <h4>Explore</h4>
+          <a href="/services">Services</a>
+          <a href="/project">Projects</a>
+          <a href="/careers">Careers</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <div class="ft-col ft-contact">
+          <h4>Get in Touch</h4>
+          <a href="mailto:info@raimore.com">info@raimore.com</a>
+          <a href="tel:5034933533">503.493.3533</a>
+          <p>2522 NE MLK Jr Blvd<br />Portland, OR 97212</p>
+          <p class="ft-lic">MBE &middot; CCB# 176521</p>
+        </div>
+      </div>
+
+      <div class="ft-divider"></div>
+
+      <div class="ft-bottom">
+        <p class="ft-copy">&copy; 2026 Raimore Construction. All rights reserved. &nbsp;&middot;&nbsp; Built by <a href="https://rehemasolutions.com/">Rehema Solutions</a></p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/raimore-construction-llc/" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></a>
+          <a href="https://x.com/" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=6"></script>
+</body>
+</html>

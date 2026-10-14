@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"){t="light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects, Raimore</title>
+  <meta name="description" content="Raimore Construction projects across the Pacific Northwest, bus rapid transit, light rail, parks, and heavy civil infrastructure. Explore current and completed work." />
+  <link rel="icon" href="images/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="/" class="brand" aria-label="Raimore Construction home">
+        <img src="images/logo-white.png" alt="Raimore Construction" class="brand-logo" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li class="has-dropdown">
+          <a href="/about-us">Company <span class="caret">&#9662;</span></a>
+          <ul class="dropdown">
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/leadership">Leadership</a></li>
+            <li><a href="/diversity">Diversity</a></li>
+            <li><a href="/safety">Safety</a></li>
+            <li><a href="/community">Community</a></li>
+          </ul>
+        </li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><a href="/careers">Careers</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme" title="Toggle light / dark"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <div class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+<style>
+  :root {
+    --r-bg:        #ffffff;
+    --r-bg-soft:   #F7F8FB;
+    --r-ink:       #0E1116;
+    --r-ink-soft:  #4A5160;
+    --r-muted:     #8A92A3;
+    --r-line:      #E7EAF0;
+    --r-card:      #FFFFFF;
+    --r-accent:    #BA2334;
+    --r-chip-bg:   #F4F6FA;
+    --r-shadow:    0 1px 2px rgba(14,17,22,.04), 0 12px 40px -12px rgba(14,17,22,.12);
+
+    --r-font-display: "Funnel Display", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --r-font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --r-radius: 14px;
+    --r-radius-lg: 20px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .rd-root {
+    font-family: var(--r-font-body);
+    color: var(--r-ink);
+    background: var(--r-bg);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    container-type: inline-size;
+    container-name: rdetail;
+    position: relative;
+  }
+  .rd-root img { max-width: 100%; display: block; }
+  .rd-root a  { color: inherit; }
+
+  .rd-hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(32px, 5vw, 64px) clamp(20px, 5vw, 64px) clamp(48px, 6vw, 96px);
+    overflow: hidden;
+    background: #0E1116;
+    color: #fff;
+  }
+  .rd-hero-bg {
+    position: absolute; inset: 0;
+    z-index: 0;
+  }
+  .rd-hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: .55;
+  }
+  .rd-hero-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(14,17,22,.3) 0%, rgba(14,17,22,.85) 100%),
+      linear-gradient(90deg, rgba(14,17,22,.5) 0%, rgba(14,17,22,0) 60%);
+  }
+  .rd-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .rd-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    margin-bottom: clamp(32px, 5vw, 56px);
+    transition: color .2s ease, transform .3s ease;
+  }
+  .rd-back:hover { color: #fff; transform: translateX(-3px); }
+  .rd-crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 18px;
+  }
+  .rd-crumb::before {
+    content: "";
+    width: 28px; height: 1.5px;
+    background: var(--r-accent);
+  }
+  .rd-hero-title {
+    font-family: var(--r-font-display);
+    font-weight: 800;
+    font-size: clamp(42px, 7vw, 88px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px 0;
+    max-width: 18ch;
+  }
+  .rd-hero-title em {
+    font-style: normal;
+    font-weight: 800;
+    color: var(--r-accent);
+  }
+  .rd-hero-lede {
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.55;
+    color: rgba(255,255,255,.82);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .rd-caps {
+    background: var(--r-bg-soft);
+    border-bottom: 1px solid var(--r-line);
+    padding: clamp(32px, 4vw, 56px) clamp(20px, 5vw, 64px);
+  }
+  .rd-caps-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: start;
+  }
+  .rd-caps-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--r-muted);
+    padding-top: 6px;
+  }
+  .rd-caps-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rd-caps-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 15.5px;
+    line-height: 1.4;
+    color: var(--r-ink);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--r-line);
+  }
+  .rd-caps-list li:last-child { border-bottom: none; }
+  .rd-caps-list li::before {
+    content: "";
+    flex: 0 0 6px;
+    width: 6px; height: 6px;
+    background: var(--r-accent);
+    border-radius: 50%;
+    transform: translateY(-2px);
+  }
+
+  .rd-content {
+    padding: clamp(56px, 7vw, 112px) clamp(20px, 5vw, 64px) clamp(32px, 4vw, 64px);
+  }
+  .rd-content-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(32px, 5vw, 80px);
+  }
+  .rd-kicker {
+    font-family: var(--r-font-body);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--r-accent);
+  }
+  .rd-body h2 {
+    font-family: var(--r-font-display);
+    font-weight: 700;
+    font-size: clamp(30px, 3.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 0 0 28px 0;
+    color: var(--r-ink);
+  }
+  .rd-body p {
+    font-size: clamp(15.5px, 1.2vw, 17px);
+    line-height: 1.65;
+    color: var(--r-ink-soft);
+    margin: 0 0 20px 0;
+  }
+  .rd-body p strong { color: var(--r-ink); font-weight: 600; }
+
+  .rd-projects {
+    background: var(--r-bg-soft);
+    padding: clamp(56px, 7vw, 112px) clamp(20px, 5vw, 64px) clamp(32px, 4vw, 64px);
+    border-top: 1px solid var(--r-line);
+  }
+  .rd-projects-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .rd-projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .rd-projects-header h2 {
+    font-family: var(--r-font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 12px 0 0 0;
+  }
+
+  .rd-filter {
+    display: flex;
+    gap: 4px;
+    background: #fff;
+    padding: 4px;
+    border: 1px solid var(--r-line);
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .rd-filter button {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--r-ink-soft);
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .25s ease;
+    white-space: nowrap;
+  }
+  .rd-filter button:hover { color: var(--r-ink); }
+  .rd-filter button.is-active {
+    background: var(--r-ink);
+    color: #fff;
+  }
+
+  .rd-proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .rd-proj {
+    background: #fff;
+    border: 1px solid var(--r-line);
+    border-radius: var(--r-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .4s cubic-bezier(.2,.7,.2,1),
+                box-shadow .4s cubic-bezier(.2,.7,.2,1),
+                border-color .3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  .rd-proj:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--r-shadow);
+    border-color: #D6DBE5;
+  }
+  .rd-proj-media {
+    height: 200px;
+    overflow: hidden;
+    background: #0E1116;
+    position: relative;
+  }
+  .rd-proj-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(.2,.7,.2,1);
+  }
+  .rd-proj:hover .rd-proj-media img { transform: scale(1.05); }
+  .rd-proj-status {
+    position: absolute;
+    top: 14px; left: 14px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(14,17,22,.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .rd-proj-status.is-current {
+    background: var(--r-accent);
+    color: #fff;
+  }
+
+  .rd-proj-body {
+    padding: 22px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .rd-proj-body h3 {
+    font-family: var(--r-font-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px 0;
+    color: var(--r-ink);
+  }
+  .rd-proj-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 14px;
+    font-size: 13px;
+    line-height: 1.45;
+    margin: 0 0 16px 0;
+  }
+  .rd-proj-meta dt {
+    font-weight: 500;
+    color: var(--r-muted);
+  }
+  .rd-proj-meta dd {
+    margin: 0;
+    color: var(--r-ink-soft);
+  }
+  .rd-proj-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--r-ink-soft);
+    margin: 0;
+  }
+  .rd-proj::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--r-radius-lg);
+    pointer-events: none;
+    box-shadow: 0 0 0 0 rgba(186,35,52,0);
+    transition: box-shadow .3s ease;
+  }
+  .rd-proj:focus-visible { outline: none; }
+  .rd-proj:focus-visible::after { box-shadow: 0 0 0 3px rgba(186,35,52,.4); }
+
+  .rd-cta {
+    padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 64px);
+    background: #0E1116;
+    color: #fff;
+    text-align: center;
+  }
+  .rd-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .rd-cta h2 {
+    font-family: var(--r-font-display);
+    font-weight: 800;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 16px 0;
+  }
+  .rd-cta p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.75);
+    margin: 0 0 32px 0;
+  }
+  .rd-cta-btns {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .rd-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 14px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.2,.7,.2,1);
+    border: 1px solid transparent;
+  }
+  .rd-btn-primary {
+    background: var(--r-accent);
+    color: #fff;
+  }
+  .rd-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px rgba(186,35,52,.6);
+  }
+  .rd-btn-ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,.25);
+  }
+  .rd-btn-ghost:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.5);
+  }
+  .rd-btn .arrow { transition: transform .3s ease; }
+  .rd-btn:hover .arrow { transform: translateX(3px); }
+
+  .rd-lock { overflow: hidden !important; }
+
+  .rd-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(16px, 3vw, 48px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility 0s linear .35s;
+    pointer-events: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rd-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .35s ease;
+  }
+  .rd-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(14,17,22,.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: -1;
+    pointer-events: auto;
+  }
+  .rd-modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 980px;
+    margin: auto;
+    background: var(--r-bg);
+    border-radius: var(--r-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,.5);
+    transform: translateY(30px) scale(.97);
+    transition: transform .45s cubic-bezier(.2,.9,.3,1);
+  }
+  .rd-modal.is-open .rd-modal-dialog {
+    transform: translateY(0) scale(1);
+  }
+  .rd-modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    z-index: 3;
+    width: 40px; height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--r-ink);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s ease, background .25s ease;
+    font-family: inherit;
+  }
+  .rd-modal-close:hover {
+    transform: scale(1.08) rotate(90deg);
+    background: #fff;
+  }
+
+  .rd-modal-hero {
+    position: relative;
+    height: clamp(220px, 35vw, 420px);
+    background: #0E1116;
+    overflow: hidden;
+  }
+  .rd-modal-hero img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .rd-modal-hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(14,17,22,0) 45%, rgba(14,17,22,.9) 100%);
+  }
+  .rd-modal-hero-content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: clamp(20px, 3vw, 40px) clamp(24px, 4vw, 56px);
+    color: #fff;
+    z-index: 1;
+  }
+  .rd-modal-status {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    margin-bottom: 14px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .rd-modal-status.is-current {
+    background: var(--r-accent);
+    color: #fff;
+  }
+  .rd-modal-title {
+    font-family: var(--r-font-display);
+    font-weight: 800;
+    font-size: clamp(24px, 3.5vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 26ch;
+  }
+
+  .rd-modal-body {
+    padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 56px);
+  }
+  .rd-modal-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px 32px;
+    padding: 0 0 24px 0;
+    margin: 0 0 28px 0;
+    border-bottom: 1px solid var(--r-line);
+  }
+  .rd-modal-meta > div dt {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--r-muted);
+    margin: 0 0 6px 0;
+  }
+  .rd-modal-meta > div dd {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: var(--r-ink);
+    font-weight: 500;
+  }
+  .rd-modal-desc {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.65;
+    color: var(--r-ink-soft);
+    margin: 0 0 36px 0;
+    max-width: 68ch;
+  }
+  .rd-modal-desc p { margin: 0 0 16px 0; }
+  .rd-modal-desc p:last-child { margin-bottom: 0; }
+  .rd-modal-desc strong { color: var(--r-ink); font-weight: 600; }
+  .rd-modal-section-label {
+    font-family: var(--r-font-body);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--r-muted);
+    margin: 0 0 18px 0;
+  }
+  .rd-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .rd-gallery-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0E1116;
+    cursor: pointer;
+  }
+  .rd-gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  }
+  .rd-gallery-item:hover img { transform: scale(1.06); }
+  .rd-gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 70%, rgba(14,17,22,.4) 100%);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .rd-gallery-item:hover::after { opacity: 1; }
+
+  .rd-lb {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility 0s linear .3s;
+    pointer-events: none;
+  }
+  .rd-lb.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .3s ease;
+  }
+  .rd-lb::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 10, 14, .94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: -1;
+  }
+
+  .rd-lb-stage {
+    position: relative;
+    max-width: 95vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rd-lb-img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+    transition: opacity .25s ease;
+  }
+  .rd-lb-img.is-loading {
+    opacity: 0.4;
+  }
+
+  .rd-lb-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background .25s ease, transform .25s ease;
+    font-family: inherit;
+    z-index: 2;
+  }
+  .rd-lb-btn:hover {
+    background: rgba(255,255,255,.22);
+    transform: translateY(-50%) scale(1.06);
+  }
+  .rd-lb-prev { left: clamp(12px, 3vw, 32px); }
+  .rd-lb-next { right: clamp(12px, 3vw, 32px); }
+
+  .rd-lb-close {
+    position: fixed;
+    top: clamp(16px, 3vw, 28px);
+    right: clamp(16px, 3vw, 28px);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background .25s ease, transform .25s ease;
+    font-family: inherit;
+    z-index: 3;
+  }
+  .rd-lb-close:hover {
+    background: rgba(255,255,255,.22);
+    transform: scale(1.06) rotate(90deg);
+  }
+
+  .rd-lb-counter {
+    position: fixed;
+    bottom: clamp(20px, 4vw, 36px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,.65);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    z-index: 3;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 640px) {
+    .rd-lb-btn { width: 44px; height: 44px; font-size: 18px; }
+    .rd-lb-prev { left: 12px; }
+    .rd-lb-next { right: 12px; }
+    .rd-lb-close { width: 40px; height: 40px; top: 14px; right: 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rd-lb, .rd-lb-img, .rd-lb-btn, .rd-lb-close {
+      transition: none !important;
+    }
+  }
+  .rd-highlights {
+    list-style: none;
+    margin: 0 0 36px 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .rd-highlights li {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--r-bg-soft);
+    border: 1px solid var(--r-line);
+    border-radius: 10px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--r-ink);
+  }
+  .rd-highlights li::before {
+    content: "✓";
+    color: var(--r-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  @keyframes rd-rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rd-animate { opacity: 0; animation: rd-rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+  .rd-animate.d1 { animation-delay: .05s; }
+  .rd-animate.d2 { animation-delay: .15s; }
+
+  @container rdetail (max-width: 900px) {
+    .rd-caps-inner,
+    .rd-content-inner {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .rd-caps-label { padding-top: 0; }
+    .rd-projects-header { align-items: flex-start; flex-direction: column; }
+  }
+
+  @container rdetail (max-width: 640px) {
+    .rd-hero { min-height: 440px; }
+    .rd-hero-title { font-size: clamp(36px, 10cqi, 56px); }
+    .rd-hero-lede { font-size: 15.5px; }
+    .rd-proj-grid { grid-template-columns: 1fr; }
+    .rd-filter { width: 100%; overflow-x: auto; justify-content: flex-start; }
+    .rd-cta-btns { flex-direction: column; width: 100%; }
+    .rd-btn { justify-content: center; width: 100%; }
+  }
+
+  @container rdetail (max-width: 420px) {
+    .rd-hero { min-height: 400px; padding: 24px 16px 40px; }
+    .rd-hero-title { font-size: 34px; }
+    .rd-caps { padding: 32px 16px; }
+    .rd-content { padding: 48px 16px 28px; }
+    .rd-projects { padding: 48px 16px 28px; }
+    .rd-cta { padding: 56px 16px; }
+  }
+
+  @supports not (container-type: inline-size) {
+    @media (max-width: 900px) {
+      .rd-caps-inner,
+      .rd-content-inner { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 640px) {
+      .rd-proj-grid { grid-template-columns: 1fr; }
+      .rd-cta-btns { flex-direction: column; width: 100%; }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rd-animate { animation: none !important; opacity: 1 !important; }
+    * { transition: none !important; }
+  }
+
+  @media (hover: none) {
+    .rd-proj:hover { transform: none; box-shadow: none; }
+    .rd-proj:hover .rd-proj-media img { transform: none; }
+  }
+
+  @media (max-width: 640px) {
+    .rd-modal { padding: 0; align-items: stretch; }
+    .rd-modal-dialog {
+      max-width: 100%;
+      border-radius: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    .rd-modal-close { top: 14px; right: 14px; width: 36px; height: 36px; }
+    .rd-modal-hero { height: 240px; }
+    .rd-modal-meta { gap: 16px 24px; }
+    .rd-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  }
+
+  @media (max-width: 420px) {
+    .rd-modal-hero { height: 200px; }
+    .rd-modal-hero-content { padding: 20px; }
+    .rd-modal-title { font-size: 22px; }
+    .rd-modal-body { padding: 24px 20px; }
+    .rd-gallery { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="rd-root" id="rdRoot" data-service="projects">
+  <section class="rd-hero">
+    <div class="rd-hero-bg"><img id="rdHeroImg" src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/services-hero-sunrise.webp" alt="01 / Projects" /></div>
+    <div class="rd-hero-inner">
+      <a href="/services" class="rd-back" id="rdBack">
+        <span>←</span> <span>Back to services</span>
+      </a>
+      <div class="rd-crumb" id="rdCrumb">01 / Projects</div>
+      <h1 class="rd-hero-title rd-animate d1" id="rdTitle">Projects that form the foundation of <em>thriving communities.</em></h1>
+      <p class="rd-hero-lede rd-animate d2" id="rdLede">Specializing in Heavy Civil, Transportation, Parks, and Commercial Development, Raimore delivers complex infrastructure across the Pacific Northwest.</p>
+    </div>
+  </section>
+
+  <section class="rd-caps" id="rdCapsSection">
+    <div class="rd-caps-inner">
+      <div class="rd-caps-label">Core Capabilities</div>
+      <ul class="rd-caps-list" id="rdCapsList">
+        <li>Heavy Civil Construction</li>
+        <li>Transportation & Transit</li>
+        <li>Parks & Public Spaces</li>
+        <li>Commercial Development</li>
+        <li>Concrete Self-Perform</li>
+        <li>Underground Utilities</li>
+        <li>Earthwork & Grading</li>
+        <li>Railroad Track Work</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rd-content">
+    <div class="rd-content-inner">
+      <div class="rd-kicker" id="rdKicker">Overview</div>
+      <div class="rd-body" id="rdBody"><h2>Building the projects that build communities.</h2>
+      <p>Raimore Construction is a heavy civil contractor headquartered in Portland, Oregon, delivering complex infrastructure across the Pacific Northwest. With strong self-perform capabilities in concrete, earthwork, underground utilities, and railroad track work, our team consistently delivers excellent results across schedule, cost, quality, and safety.</p>
+      <p>Raimore values Kingdom principles and promotes whole-project team integration, keeping everyone focused on aligned, project-first goals. The guiding principle, <strong>Build Better and Stronger Together</strong>, reflects our commitment to craftsmanship, integrity, partnership, and the conviction that when people are given the chance to grow, the neighborhoods and regions they build become stronger in turn.</p>
+      <p>For Raimore, the work has always meant more than materials and milestones. Every project is an opportunity to strengthen the communities we serve, create meaningful impact, and raise the standard of what excellence looks like in practice.</p></div>
+    </div>
+  </section>
+
+  <section class="rd-projects" id="rdProjectsSection">
+    <div class="rd-projects-inner">
+      <div class="rd-projects-header">
+        <div>
+          <div class="rd-kicker">Our Work</div>
+          <h2>Current &amp; Complete Projects</h2>
+        </div>
+        <div class="rd-filter" id="rdFilter">
+          <button data-filter="all" class="is-active">All</button>
+          <button data-filter="current">Current</button>
+          <button data-filter="completed">Completed</button>
+        </div>
+      </div>
+      <div class="rd-proj-grid" id="rdProjGrid">
+        <a class="rd-proj" href="/project-82nd-ave-transit" data-status="current">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status is-current">In Progress</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/82nd-ave-transit-cover.webp" alt="82nd Avenue Transit Project (FX-BRT)" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>82nd Avenue Transit Project (FX-BRT)</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Bus Rapid Transit • Corridor Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC (JV, Raimore Lead Partner)</dd>
+              <dt>Year</dt><dd>2025–2029</dd>
+            </dl>
+            <p class="rd-proj-desc">A 10-mile Bus Rapid Transit corridor along 82nd Avenue including ~60 stations, intersection upgrades, utility relocations, and roadway reconstruction.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-i5-rose-quarter" data-status="current">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status is-current">In Progress</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/i5-rose-quarter-cover.webp" alt="I-5 Rose Quarter Improvement Project, Phase 1A" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>I-5 Rose Quarter Improvement Project, Phase 1A</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Oregon Department of Transportation (ODOT)</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Highway • Seismic Retrofit • Urban Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC (Project Team Participation)</dd>
+              <dt>Year</dt><dd>2025–2026</dd>
+            </dl>
+            <p class="rd-proj-desc">A freeway improvement project focused on seismic resiliency and safety, structural retrofits, drainage systems, and traffic improvements within a constrained urban corridor.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-82nd-ave-major-maintenance" data-status="current">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status is-current">In Progress</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/82nd-ave-maintenance-cover.webp" alt="82nd Avenue Major Maintenance Project" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>82nd Avenue Major Maintenance Project</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Bureau of Transportation (PBOT)</dd>
+              <dt>Location</dt><dd>NE/SE 82nd Ave, Portland, OR</dd>
+              <dt>Type</dt><dd>Roadway • Corridor Improvements</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+              <dt>Year</dt><dd>2023–2026</dd>
+            </dl>
+            <p class="rd-proj-desc">Corridor improvement project including ADA upgrades, pavement rehabilitation, and signal improvements, delivered under active traffic with complex phasing and utility coordination.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-hollywood-transit-center" data-status="current">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status is-current">In Progress</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/hollywood-transit-center-8.webp" alt="Hollywood Transit Center" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Hollywood Transit Center</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Portland, OR (Hollywood District)</dd>
+              <dt>Type</dt><dd>Transit • Substation • Civil Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+              <dt>Year</dt><dd>2023–2026</dd>
+            </dl>
+            <p class="rd-proj-desc">Constructing a new electrical substation, underground utilities, and plaza improvements within an active transit facility while maintaining operations.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-usps-broadway-demolition" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/usps-broadway-cover.webp" alt="USPS Broadway Corridor Demolition" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>USPS Broadway Corridor Demolition</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Prosper Portland</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Heavy Civil • Demolition</dd>
+              <dt>Delivery</dt><dd>Construction Participation</dd>
+              <dt>Year</dt><dd>2023</dd>
+            </dl>
+            <p class="rd-proj-desc">Demolished structures and prepared a 14-acre redevelopment site, including large-scale earthwork and material removal.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-gateway-green" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/gateway-green-cover.webp" alt="Gateway Green Development &amp; Restoration" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Gateway Green Development & Restoration</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Parks & Recreation</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Parks • Environmental Restoration</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+              <dt>Year</dt><dd>2024</dd>
+            </dl>
+            <p class="rd-proj-desc">Developed a 24-acre public recreation space with trail systems, environmental restoration, and stormwater management features.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-division-transit" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/division-transit-cover.webp" alt="Division Transit Project (FX2-Division)" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Division Transit Project (FX2-Division)</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Gresham to Downtown Portland, OR</dd>
+              <dt>Type</dt><dd>Bus Rapid Transit • Oregon's First BRT</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+              <dt>Year</dt><dd>2022</dd>
+            </dl>
+            <p class="rd-proj-desc">Delivered Oregon's first Bus Rapid Transit corridor, a 15-mile, $175M transformation of Division Street featuring 42 elevated stations, signal priority, and protected bike infrastructure.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-odmnsp-ommsp" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=1600&q=80" alt="ODMNSP / OMMSP Program" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>ODMNSP / OMMSP Program</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Bureau of Transportation (PBOT)</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Streetscape • Safety Improvements</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+              <dt>Year</dt><dd>2022</dd>
+            </dl>
+            <p class="rd-proj-desc">Completed corridor-wide safety and accessibility improvements, including ADA upgrades, traffic calming features, and infrastructure coordination.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-mill-park" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/mill-park-cover.webp" alt="Mill Park Improvements" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Mill Park Improvements</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Parks & Recreation</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Parks • Community Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Constructed a community park including a splash pad, water system, drainage system, ADA pathways, and public gathering spaces.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-lents-park" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=1600&q=80" alt="Lents Park Improvements" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Lents Park Improvements</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Parks & Recreation</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Parks • Community Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Installed play structures, concrete foundations, underground utilities, and site improvements within an active park environment.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-92nd-sandy-sidewalk" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/92nd-sandy-cover.webp" alt="92nd &amp; Sandy Sidewalk Infill Project" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>92nd & Sandy Sidewalk Infill Project</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Bureau of Transportation (PBOT)</dd>
+              <dt>Location</dt><dd>SE 92nd & Sandy Blvd, Portland, OR</dd>
+              <dt>Type</dt><dd>Streetscape • Sidewalk Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Constructed sidewalk and roadway improvements, including concrete, asphalt paving, and underground utility work, while maintaining traffic and pedestrian access.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-beech-park" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=1600&q=80" alt="Beech Park Development" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Beech Park Development</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Parks & Recreation</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Parks • Community Development</dd>
+              <dt>Delivery</dt><dd>CM/GC (Joint Venture)</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Delivered a community park through a joint venture CM/GC approach, supporting subcontractor procurement, outreach, and project coordination.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-oregon-convention-center" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/oregon-convention-center-cover.webp" alt="Oregon Convention Center Renovation" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Oregon Convention Center Renovation</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Metro</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Institutional • Public Facility</dd>
+              <dt>Delivery</dt><dd>CM/GC (Prime)</dd>
+              <dt>Year</dt><dd>2019</dd>
+            </dl>
+            <p class="rd-proj-desc">Renovated a major public facility, including plaza and right-of-way improvements, while maintaining continuous operations.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-ohsu-knight-cancer" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=1600&q=80" alt="OHSU Knight Cancer Research Building" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>OHSU Knight Cancer Research Building</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Oregon Health & Science University</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Healthcare • Research Facility</dd>
+              <dt>Delivery</dt><dd>Construction Participation</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Supported construction of a high-performance research facility within a constrained urban campus.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-ruby-junction" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/ruby-junction-cover.webp" alt="Ruby Junction Facility Expansion (Phase 1)" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Ruby Junction Facility Expansion (Phase 1)</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Gresham, OR</dd>
+              <dt>Type</dt><dd>Transit Operations Facility</dd>
+              <dt>Delivery</dt><dd>Construction Participation</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Expanded a transit operations facility to support maintenance and service capacity.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-luwit-view-park" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/luuwit-cover.webp" alt="Luuwit View Park" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Luuwit View Park</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Parks & Recreation</dd>
+              <dt>Location</dt><dd>NE Portland (Cully Neighborhood), OR</dd>
+              <dt>Type</dt><dd>Parks • Public Infrastructure • Community Space</dd>
+              <dt>Delivery</dt><dd>Construction Participation</dd>
+              <dt>Year</dt><dd>2018</dd>
+            </dl>
+            <p class="rd-proj-desc">Constructed a 16-acre community park named for the indigenous name of Mount St. Helens, featuring a sculptural pavilion, amphitheater, playground, public art, and panoramic mountain views.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-moving-together" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=1600&q=80" alt="TriMet Moving Together Project" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>TriMet Moving Together Project</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Site Development • Transit Support</dd>
+              <dt>Delivery</dt><dd>General Contracting (Prime)</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Constructed parking facilities, including utilities, paving, and contaminated soil remediation.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-pcc-cascade" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1600&q=80" alt="PCC Satellite Parking Lots" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>PCC Satellite Parking Lots</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Community College</dd>
+              <dt>Location</dt><dd>Portland, OR (PCC Cascade Campus)</dd>
+              <dt>Type</dt><dd>Site Development</dd>
+              <dt>Delivery</dt><dd>General Contracting (Prime)</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Constructed parking lots, including excavation, utilities, concrete work, and paving.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-open-space-sequence" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80" alt="Portland Open Space Sequence Restoration" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Portland Open Space Sequence Restoration</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>City of Portland, Parks & Recreation</dd>
+              <dt>Location</dt><dd>Downtown Portland, OR</dd>
+              <dt>Type</dt><dd>Parks • Urban Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC</dd>
+              <dt>Year</dt><dd>2017–2019</dd>
+            </dl>
+            <p class="rd-proj-desc">Restored multiple downtown open spaces through phased construction while maintaining public access.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-portland-milwaukie-shelters" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/portland-milwaukie-cover.webp" alt="Portland-Milwaukie Light Rail Deferred Shelter Installation" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Portland-Milwaukie Light Rail Deferred Shelter Installation</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Portland Metro Area</dd>
+              <dt>Type</dt><dd>Light Rail Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC</dd>
+              <dt>Year</dt><dd>2016–2017</dd>
+            </dl>
+            <p class="rd-proj-desc">Installed transit shelters, including structural steel, electrical systems, and architectural elements, along the MAX Orange Line.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-portland-transit-mall" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/portland-transit-mall-cover.webp" alt="Portland Transit Mall" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Portland Transit Mall</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>5th & 6th Avenues, Downtown Portland, OR</dd>
+              <dt>Type</dt><dd>Streetscape • Transit Infrastructure • Brick Restoration</dd>
+              <dt>Delivery</dt><dd>Construction Participation</dd>
+              <dt>Year</dt><dd>2006–2009</dd>
+            </dl>
+            <p class="rd-proj-desc">Reconstructed sidewalks, ADA ramps, and intricate brick paving across Portland's signature downtown transit corridor, finishing two weeks early and earning the Brick Institute Gold Award for craftsmanship.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-nelson-parking-lot" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80" alt="Nelson Parking Lot Improvements" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Nelson Parking Lot Improvements</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>Portland Development Commission</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Site Development</dd>
+              <dt>Delivery</dt><dd>General Contracting</dd>
+              <dt>Year</dt><dd>2016</dd>
+            </dl>
+            <p class="rd-proj-desc">Completed site redevelopment, including demolition, paving, utilities, stormwater systems, and public plaza elements.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-portland-streetcar" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/portland-streetcar-cover.webp" alt="Portland Streetcar (Phases 1–4)" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Portland Streetcar (Phases 1–4)</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>City of Portland / Portland Streetcar Inc.</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Streetcar • Light Rail Transit Infrastructure</dd>
+              <dt>Delivery</dt><dd>Construction Participation</dd>
+              <dt>Year</dt><dd>2001–2015</dd>
+            </dl>
+            <p class="rd-proj-desc">Supported four phases of Portland's modern streetcar, the first new streetcar system built in the U.S. in over 50 years, through track work, station platforms, and corridor reconstruction.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-interstate-max" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/interstate-max-cover.webp" alt="Interstate MAX Yellow Line" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>Interstate MAX Yellow Line</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Rose Quarter to Expo Center, North Portland, OR</dd>
+              <dt>Type</dt><dd>Light Rail • Corridor Infrastructure</dd>
+              <dt>Delivery</dt><dd>CM/GC (Construction Participation)</dd>
+              <dt>Year</dt><dd>2000–2004</dd>
+            </dl>
+            <p class="rd-proj-desc">Contributed to TriMet's first CM/GC right-of-way project, a 5.8-mile light rail corridor connecting the Rose Quarter to the Expo Center that set a new benchmark for DBE participation across the region.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-efare-infrastructure" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://pobpedekvpqyotfhdygk.supabase.co/storage/v1/object/public/assets/efare-cover.webp" alt="TriMet eFare Infrastructure Project" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>TriMet eFare Infrastructure Project</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Portland Metro Area</dd>
+              <dt>Type</dt><dd>Electrical • Transit Systems</dd>
+              <dt>Delivery</dt><dd>CM/GC (Co-Prime)</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Installed fare systems, conduits, foundations, and communication infrastructure across multiple transit platforms.</p>
+          </div>
+        </a>
+        <a class="rd-proj" href="/project-trimet-lot-e" data-status="completed">
+          <div class="rd-proj-media">
+            <span class="rd-proj-status ">Completed</span>
+            <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1600&q=80" alt="TriMet Lot E Improvements" loading="lazy" />
+          </div>
+          <div class="rd-proj-body">
+            <h3>TriMet Lot E Improvements</h3>
+            <dl class="rd-proj-meta">
+              <dt>Owner</dt><dd>TriMet</dd>
+              <dt>Location</dt><dd>Portland, OR</dd>
+              <dt>Type</dt><dd>Site Development</dd>
+              <dt>Delivery</dt><dd>General Contracting</dd>
+
+            </dl>
+            <p class="rd-proj-desc">Completed site improvements, including utilities, grading, fencing, and security upgrades.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rd-cta">
+    <div class="rd-cta-inner">
+      <h2>Have a project in mind?</h2>
+      <p>Let's talk about how Raimore can help you deliver it, on schedule, on budget, and built to last.</p>
+      <div class="rd-cta-btns">
+        <a href="/contact" class="rd-btn rd-btn-primary">
+          Start a conversation <span class="arrow">→</span>
+        </a>
+        <a href="/services" class="rd-btn rd-btn-ghost">
+          Explore other services
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var grid = document.getElementById('rdProjGrid');
+  var filter = document.getElementById('rdFilter');
+  if (!grid || !filter) return;
+  filter.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-filter]');
+    if (!btn) return;
+    Array.prototype.forEach.call(filter.querySelectorAll('button'), function (b) { b.classList.remove('is-active'); });
+    btn.classList.add('is-active');
+    var f = btn.getAttribute('data-filter');
+    Array.prototype.forEach.call(grid.querySelectorAll('.rd-proj'), function (card) {
+      var s = card.getAttribute('data-status');
+      card.style.display = (f === 'all' || s === f) ? '' : 'none';
+    });
+  });
+})();
+</script>
+
+<style>
+  .rd-root .rd-hero { padding-top: clamp(112px, 14vw, 148px); }
+
+</style>
+
+  <footer class="footer">
+    <div class="ft-inner">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-word"><span class="ft-word-main">Raimore</span><span class="ft-word-sub">Construction</span></div>
+          <p class="ft-desc">A heavy civil contractor headquartered in Portland, Oregon, delivering infrastructure that builds better, stronger communities across the Pacific Northwest.</p>
+        </div>
+        <nav class="ft-col">
+          <h4>Company</h4>
+          <a href="/about-us">About Us</a>
+          <a href="/leadership">Leadership</a>
+          <a href="/diversity">Diversity</a>
+          <a href="/safety">Safety</a>
+          <a href="/community">Community</a>
+        </nav>
+        <nav class="ft-col">
+          <h4>Explore</h4>
+          <a href="/services">Services</a>
+          <a href="/project">Projects</a>
+          <a href="/careers">Careers</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <div class="ft-col ft-contact">
+          <h4>Get in Touch</h4>
+          <a href="mailto:info@raimore.com">info@raimore.com</a>
+          <a href="tel:5034933533">503.493.3533</a>
+          <p>2522 NE MLK Jr Blvd<br />Portland, OR 97212</p>
+          <p class="ft-lic">MBE &middot; CCB# 176521</p>
+        </div>
+      </div>
+
+      <div class="ft-divider"></div>
+
+      <div class="ft-bottom">
+        <p class="ft-copy">&copy; 2026 Raimore Construction. All rights reserved. &nbsp;&middot;&nbsp; Built by <a href="https://rehemasolutions.com/">Rehema Solutions</a></p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/raimore-construction-llc/" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></a>
+          <a href="https://x.com/" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=6"></script>
+</body>
+</html>
